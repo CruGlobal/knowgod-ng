@@ -1,9 +1,7 @@
 <!doctype html>
-<html ng-app="todoApp">
+<html ng-app="knowGod">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js">
-
     <script src="controller.js"></script>
     <link rel="stylesheet" href="todo.css">
   </head>
@@ -26,7 +24,12 @@
         <input class="btn-primary" type="submit" value="add">
       </form>
       <p>{{knowGod.content}}</p>
-      <p>{{knowGod.driver}}</p>
+      <select ng-model="">
+        <option ng-repeat="resource in knowGod.resources.data">
+          {{resource.attributes.name}}
+        </option>
+      </select>
+      <p>{{knowGod.resources}}</p>
     </div>
   </body>
 </html>

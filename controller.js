@@ -1,5 +1,5 @@
-angular.module('todoApp', [])
-  .factory('mcAPIservice', function($http, $sce) {
+angular.module('knowGod', [])
+  /*.factory('mcAPIservice', function($http, $sce) {
     var yolo = 'yolo';
 
     $http.jsonp($sce.trustAsResourceUrl('https://jsonplaceholder.typicode.com/posts/1'), {jsonpCallbackParam: 'callback'}).then(function (data) {
@@ -7,8 +7,9 @@ angular.module('todoApp', [])
     });;
 
     return yolo;
-  })
-  .controller('KnowGodController', function(mcAPIservice) {
+  })*/
+  .value('load_song', '')
+  .controller('KnowGodController', function($scope, $http, $window) {
     var knowGod = this;
     knowGod.todos = [
       {text:'learn AngularJS', done:true},
@@ -16,7 +17,15 @@ angular.module('todoApp', [])
     
     //There's my new variable
     knowGod.content = 'todile';
-    knowGod.driver = mcAPIservice;
+    var resourced = function() {
+      var url = 'https://mobile-content-api.cru.org/resources/?filter%5Bsystem%5D=GodTools';
+      $http.get(url).then(function(response){
+        knowGod.resources = response.data;
+      });
+    }
+    resourced();
+
+    //knowGod.driver = mcAPIservice;
  
     knowGod.addTodo = function() {
       knowGod.todos.push({text:knowGod.todoText, done:false});
