@@ -1,28 +1,42 @@
 angular.module('todoApp', [])
-  .controller('TodoListController', function() {
-    var todoList = this;
-    todoList.todos = [
+  .factory('mcAPIservice', function($http, $sce) {
+    var yolo = 'yolo';
+
+    $http.jsonp($sce.trustAsResourceUrl('https://jsonplaceholder.typicode.com/posts/1'), {jsonpCallbackParam: 'callback'}).then(function (data) {
+      yolo = data;
+    });;
+
+    return yolo;
+  })
+  .controller('KnowGodController', function(mcAPIservice) {
+    var knowGod = this;
+    knowGod.todos = [
       {text:'learn AngularJS', done:true},
       {text:'build an AngularJS app', done:false}];
+    
+    //There's my new variable
+    knowGod.content = 'todile';
+    knowGod.driver = mcAPIservice;
  
-    todoList.addTodo = function() {
-      todoList.todos.push({text:todoList.todoText, done:false});
-      todoList.todoText = '';
+    knowGod.addTodo = function() {
+      knowGod.todos.push({text:knowGod.todoText, done:false});
+      knowGod.todoText = '';
     };
  
-    todoList.remaining = function() {
+    knowGod.remaining = function() {
       var count = 0;
-      angular.forEach(todoList.todos, function(todo) {
+      angular.forEach(knowGod.todos, function(todo) {
         count += todo.done ? 0 : 1;
       });
       return count;
     };
  
-    todoList.archive = function() {
-      var oldTodos = todoList.todos;
-      todoList.todos = [];
+    knowGod.archive = function() {
+      var oldTodos = knowGod.todos;
+      knowGod.todos = [];
       angular.forEach(oldTodos, function(todo) {
-        if (!todo.done) todoList.todos.push(todo);
+        if (!todo.done) knowGod.todos.push(todo);
       });
     };
   });
+
