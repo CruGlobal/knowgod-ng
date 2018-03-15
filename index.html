@@ -6,8 +6,20 @@
     <link rel="stylesheet" href="todo.css">
   </head>
   <body>
-    <h2>Todo</h2>
     <div ng-controller="KnowGodController as knowGod">
+      <select ng-model="knowGod.language" ng-init="knowGod.language='
+          English
+        '" style="float: right">
+        <option ng-repeat="lang in knowGod.languages.data">
+          {{lang.attributes.name}}
+        </option>
+      </select>
+      <select style="float: right">
+        <option ng-repeat="lang in knowGod.languages.data[0].relationships.translations.data">
+          {{lang.id}}
+        </option>
+      </select>
+      <h2>Todo</h2>
       <span>{{knowGod.remaining()}} of {{knowGod.todos.length}} remaining</span>
       [ <a href="" ng-click="knowGod.archive()">archive</a> ]
       <ul class="unstyled">
@@ -24,7 +36,8 @@
         <input class="btn-primary" type="submit" value="add">
       </form>
       <p>{{knowGod.content}}</p>
-      <select ng-model="">
+      <p>{{knowGod.language}}</p>
+      <select>
         <option ng-repeat="resource in knowGod.resources.data">
           {{resource.attributes.name}}
         </option>

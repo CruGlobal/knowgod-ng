@@ -14,11 +14,22 @@ angular.module('knowGod', [])
     knowGod.todos = [
       {text:'learn AngularJS', done:true},
       {text:'build an AngularJS app', done:false}];
+
+    var languages = function() {
+      var url = 'https://mobile-content-api.cru.org/languages/';
+      $http.get(url).then(function(response){
+        knowGod.languages = response.data;
+      });
+    }
+    languages();
+
+
+
     
     //There's my new variable
     knowGod.content = 'todile';
     var resourced = function() {
-      var url = 'https://mobile-content-api.cru.org/resources/?filter%5Bsystem%5D=GodTools';
+      var url = 'https://mobile-content-api.cru.org/languages/';
       $http.get(url).then(function(response){
         knowGod.resources = response.data;
       });
