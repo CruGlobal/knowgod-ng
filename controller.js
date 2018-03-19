@@ -23,21 +23,29 @@ angular.module('knowGod', [])
     }
     languages();
 
-
+    var translations = function(language) {
+  //    var url = 'https://mobile-content-api.cru.org/languages/'+language+'?include=custom_pages'  ;
+      var url = 'https://mobile-content-api.cru.org/translations';
+      $http.get(url).then(function(response){
+        knowGod.translations = response.data;
+      });      
+    }
+    translations(1);
 
     
-    //There's my new variable
-    knowGod.content = 'todile';
     var resourced = function() {
-      var url = 'https://mobile-content-api.cru.org/languages/';
+//      var url = 'https://mobile-content-api.cru.org/drafts/678/?page_id=5';
+      var url = 'https://mobile-content-api.cru.org/languages';
       $http.get(url).then(function(response){
         knowGod.resources = response.data;
       });
     }
     resourced();
 
-    //knowGod.driver = mcAPIservice;
  
+
+
+ //TODO app - can be removed 
     knowGod.addTodo = function() {
       knowGod.todos.push({text:knowGod.todoText, done:false});
       knowGod.todoText = '';

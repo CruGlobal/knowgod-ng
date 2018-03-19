@@ -3,20 +3,18 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="controller.js"></script>
-    <link rel="stylesheet" href="todo.css">
+    <!--link rel="stylesheet" href="todo.css"-->
   </head>
   <body>
     <div ng-controller="KnowGodController as knowGod">
-      <select ng-model="knowGod.language" ng-init="knowGod.language='
-          English
-        '" style="float: right">
-        <option ng-repeat="lang in knowGod.languages.data">
+      <select ng-model="knowGod.language" ng-init="knowGod.language='1'" style="float: right">
+        <option value="{{lang.id}}" ng-repeat="lang in knowGod.languages.data">
           {{lang.attributes.name}}
         </option>
       </select>
       <select style="float: right">
-        <option ng-repeat="lang in knowGod.languages.data[0].relationships.translations.data">
-          {{lang.id}}
+        <option value="{{trans.id}}" ng-repeat="trans in knowGod.languages.data[knowGod.language].relationships.translations.data">
+          {{trans.id}}
         </option>
       </select>
       <h2>Todo</h2>
@@ -35,10 +33,10 @@
                placeholder="add new todo here">
         <input class="btn-primary" type="submit" value="add">
       </form>
-      <p>{{knowGod.content}}</p>
+
       <p>{{knowGod.language}}</p>
-      <select>
-        <option ng-repeat="resource in knowGod.resources.data">
+      <select ng-model="knowGod.language">
+        <option value="{{resource.id}}" ng-repeat="resource in knowGod.languages.data">
           {{resource.attributes.name}}
         </option>
       </select>
