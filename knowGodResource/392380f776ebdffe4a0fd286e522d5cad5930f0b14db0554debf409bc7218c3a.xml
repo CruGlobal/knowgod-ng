@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<manifest xmlns="https://mobile-content-api.cru.org/xmlns/manifest" xmlns:content="https://mobile-content-api.cru.org/xmlns/content" primary-color="rgba(59,164,219,1)" primary-text-color="rgba(255,255,255,1)" navbar-color="rgba(0,0,0,0)" navbar-control-color="rgba(150,150,150,1)" background-image="kgp-tract-bkg-image-9_1x.jpg">
+    <title>
+        <content:text i18n-id="name">Knowing God Personally</content:text>
+    </title>
+<pages>
+    <page filename="01_Home.xml" src="67b7c3d321c94ff23bc585d15ee8e7f15c7cec493c8074973b251053977d5ecb.xml"/>
+    <page filename="02_FirstPoint.xml" src="b8a87313e9c0a552d9ad6833aee923c87fa3fc6fdce8899fec5138b5e87a25e9.xml"/>
+    <page filename="03_SecondPoint.xml" src="743fa53e8470cd67e1ca12ea05fbd4bd64dea08b7326691cbd888b107a2836ce.xml"/>
+    <page filename="04_ThirdPoint.xml" src="f1165b62b93e61461f64446b3198c3a9245c9f784c1fcf25efa7fd71b85e21f0.xml"/>
+    <page filename="05_FourthPoint.xml" src="908a4c4c092d97db3f3c7b59a3fdb03ecf4da204bfd3f283568b7a2614635ee4.xml"/>
+    <page filename="07_AttitudeOfYourHeart.xml" src="90feba69d384d8d99f67f7ad024797577c3ca46be73a3c0f7928b63fc316669e.xml"/>
+    <page filename="09_WhatHappens.xml" src="2ee08376ceb2cbc85b80587bfa427dd8cc30bf6b1295b253dcb18ee693935965.xml"/>
+    <page filename="11_HowCanYouBeSure.xml" src="9b83c49ca5ca986501547ee9f3878013195628f00124441bf081a1e6f5eadfec.xml"/>
+    <page filename="12_HowToGrow.xml" src="f2a10143348e0b2f32d09449115a2ec51e77bc87813d087ce98e3092fbdf797d.xml"/>
+    <page filename="13_FinalPage.xml" src="9ba065f199f726187fddd8a7be640b3f9e3e8b63bb9a95457a0da8d79cef0063.xml"/>
+</pages>
+<resources>
+    <resource filename="kgp-tract-bkg-image-2_1x.jpg" src="2ae9e94da7965f9f68e5e52c4d5f88c1f970d557ff9806f2aecec83ede9e9c69"/>
+    <resource filename="kgp-page-bkg-image-growth-1_1x.jpg" src="ad6ab3f1f1ecb37c706172a27687e3637c889e52d2078677e7224dee8a759372"/>
+    <resource filename="kgp-page-bkg-image-growth-2_1x.jpg" src="2e75693d8650bc8ab474a5ad9f3a599e7f176e6c9297a49876435324319086f0"/>
+    <resource filename="kgp-page-bkg-image-growth-3_1x.jpg" src="a0261e25c1b014f62f5f78febbf03d6060cf1df09049a96bfe1e0e0fbd88e1fc"/>
+    <resource filename="kgp-page-bkg-image-growth-4_1x.jpg" src="d8ec986e90ae19f779b61077e9dce76edbdcdb1ad9048ad0cffe355b077f8a78"/>
+    <resource filename="kgp-page-bkg-image-growth-5_1x.jpg" src="809260cdf807fd22f6db8a698eb042794114847a9c1023bfabe1062c833695a9"/>
+    <resource filename="kgp-page-bkg-image-growth-6_1x.jpg" src="d1c1c28400a46a091077c6763e186ec53c320e8696e9e693e02c707817107737"/>
+    <resource filename="kgp-page-bkg-image-hands_1x.jpg" src="bee86764814fe23046dc582ad86caf0e260847c2bf89b396b48390fc3beae45d"/>
+    <resource filename="kgp-page-bkg-image-plane_1x.jpg" src="17ce33f516b0b5316503e7d887ba3ff0789748289c1f473181ccc1c2d77868d9"/>
+    <resource filename="kgp-tract-bkg-image-1_1x.jpg" src="8ac297f0635cadde00240745637b83c255e18bf3fab0d6639de0b0a82f0ba2f3"/>
+    <resource filename="kgp-tract-bkg-image-6_1x.jpg" src="092d0da81686bc00339350483494705d290e901802bb2ff89dec37ee270f7bd5"/>
+    <resource filename="kgp-tract-bkg-image-8_1x.jpg" src="61dfdbd4859460d9d7e06a7ce4bf76380a84662c0525df4776a41d74e78c1685"/>
+    <resource filename="kgp-tract-bkg-image-5_1x.jpg" src="f61210e228c274cef642b53cc70de8d241181d0f1cab2761b8985aa19a2d3aae"/>
+    <resource filename="kgp-tract-bkg-image-0_1x.jpg" src="ab21203b684c681813c13fdb3318d8bb3f4bf02a4d8527fa61c24a8ae22b6af2"/>
+    <resource filename="kgp-tract-bkg-image-9_1x.jpg" src="d4ee8bcde434b4e075b338d914f9998fc171b72d30bed57de398c4919e8ea7d3"/>
+    <resource filename="kgp-page-bkg-image-people_1x.jpg" src="02fb7500d24a01925ad9f865d809b3c9857c0f84b9993aac7279d149f00f2aec"/>
+    <resource filename="kgp-tract-bkg-image-7_1x.jpg" src="7d9284584f7c6d01461c1c5d6cb111c2320da3f771053a48e12fd0a19a2316f5"/>
+    <resource filename="kgp-tract-bkg-image-3_1x.jpg" src="de67c19a81318dac3e2952465f9a4eaf3a8134ca91df866877ca525cbf0897c6"/>
+    <resource filename="kgp-tract-bkg-image-4_1x.jpg" src="a24bf9433a884734f953092bf31293d9f4ad67c7bfb8beaab573919501f3cbc3"/>
+    <resource filename="kpg-christ-directed-person.png" src="5d44a121641ab216196d0e65a0166f0a7487040e68deafe509e4cd83d11ce384"/>
+    <resource filename="kpg-god-proves-his-love-person.png" src="4b34d6c823a65b1e3816b5de457bfc97e43ac37a496a8ad965a803af75de0665"/>
+    <resource filename="kpg-self-directed-person.png" src="2db4477c644fe4bbad60a022a0a48fb3506d2cd0cf2014385a4c9a55baa59428"/>
+    <resource filename="kpg-sin-has-consequences-graphic-person.png" src="d9d738d45c9d76c70f5fd57dca60db25ba86abe0330e003ab46af41a022d0ba8"/>
+    <resource filename="kpg-trust-facts-not-feelings.png" src="6ec9a36367ac3ad5bc61561381d3e8513e15f234a2391e0c12075d95d9b6fa4f"/>
+    <resource filename="generic-divider-grey.png" src="035136f7e8579926e5e2acca5fc93843abe3600a1423bb1ce9639099e4f08aa2"/>
+    <resource filename="kgp-page-bkg-image-everyone-is-sinful_1x.jpg" src="511abf1f26d1556be0ec20528d36470be3e1a20bd6cece288d639d8392b669ad"/>
+</resources>
+</manifest>

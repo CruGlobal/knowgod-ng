@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+}
+h1 {
+  font-size: 96px;
+  margin: 24px 0 0 24px ;
+}
+h2 {
+  font-size: 36px;
+}
+.px100 {
+  padding-right: 100px;
+  padding-left: 100px;
+}
+.p25 {
+  padding: 22px;
+}
+.py25 {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.my25 {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.mx100 {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.mx144 {
+  margin-left: 144px;
+  margin-right: 144px;
+}
+.dib {
+  display: inline-block;
+}
+.w33 {
+  width: 33%;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.progress {
+  background-color: lightgray;
+  border-radius: 1em;
+  width: 200px;
+}
+.progress div {
+  background-color: gray;
+  border-radius: 1em;
+  height: 8px;
+  width: 20%;
+}
+.fa-chevron-up {
+  transition: .2s;
+}
+.fa-chevron-up.flip{
+  transform: scaleY(-1);
+  transition: .2s;
+}

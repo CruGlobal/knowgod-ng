@@ -1,38 +1,65 @@
 <!doctype html>
 <html ng-app="knowGod">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
     <script src="controller.js"></script>
-    <!--link rel="stylesheet" href="todo.css"-->
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div ng-controller="KnowGodController as knowGod">
-      <select ng-model="knowGod.language" ng-init="knowGod.language='1'" style="float: right">
-        <option value="{{lang.id}}" ng-repeat="lang in knowGod.languages.data">
-          {{lang.attributes.name}}
-        </option>
-      </select>
-      <select style="float: right">
+          {{knowGod.tmp}}
+      <!-- Header -->
+      <div>
+        <div style="height: 60px; text-align: center">
+          <span ng-click="hideLanguage = !hideLanguage" ng-init="hideLanguage=1" class="fl p25">
+          {{knowGod.language}}
+          <i ng-class="hideLanguage ? 'flip' : '' " class="fas fa-chevron-up"></i>
+          </span>
+
+          <div class="dib progress my25">
+            <div>
+            </div>
+          </div>
+
+          <span class="fas fa-share-alt fr p25">
+          </span>
+        </div>
+
+        <div ng-model="knowGod.language" ng-init="knowGod.language='1'" ng-hide="hideLanguage" style="background-color: lightgray;" class="px100 py25">
+          <!-- languages -->
+          <span ng-repeat="lang in knowGod.languages.data" class="w33 dib">
+            <a href="{{lang.id}}">
+            {{lang.attributes.name}} </a>
+        </span>
+        </div>
+      </div>
+
+     <!-- content goes in here -->
+
+      <div style="background-color: skyblue;" class="py25">
+        <h1 style="height: 100%" class="fl">{{knowGod.page.find('number').find('content\\:text').text()}}</h1>
+        <h2 class="mx100">{{knowGod.page.find('title').find('content\\:text').text()}}
+        </h2>
+      </div>
+      <img src="http://via.placeholder.com/530x360" class="mx144" >{{knowGod.page.find('page').attr('background-image')}}
+
+      <div ng-repeat="card in knowGod.page.find('card')">
+        <h2 class="mx100">{{card.length}}</h2>
+        <!--p class="mx144" ng-repeat="paragraph in card['content:paragraph']">{{paragraph['content:text']['#text']}}</p>
+        <img ng-if="card['-background-image']" src="http://via.placeholder.com/530x360" class="mx144" -->
+      </div>
+
+      
+      <!-- resources -->
+      <select class="fr">
         <option value="{{trans.id}}" ng-repeat="trans in knowGod.languages.data[knowGod.language].relationships.translations.data">
           {{trans.id}}
         </option>
       </select>
-      <h2>Todo</h2>
-      <span>{{knowGod.remaining()}} of {{knowGod.todos.length}} remaining</span>
-      [ <a href="" ng-click="knowGod.archive()">archive</a> ]
-      <ul class="unstyled">
-        <li ng-repeat="todo in knowGod.todos">
-          <label class="checkbox">
-            <input type="checkbox" ng-model="todo.done">
-            <span class="done-{{todo.done}}">{{todo.text}}</span>
-          </label>
-        </li>
-      </ul>
-      <form ng-submit="knowGod.addTodo()">
-        <input type="text" ng-model="knowGod.todoText"  size="30"
-               placeholder="add new todo here">
-        <input class="btn-primary" type="submit" value="add">
-      </form>
+
 
       <p>{{knowGod.language}}</p>
       <select ng-model="knowGod.language">
@@ -40,7 +67,16 @@
           {{resource.attributes.name}}
         </option>
       </select>
-      <p>{{knowGod.resources}}</p>
+      <p>{{knowGod.page}}</p>
+
+      <!-- Footer -->
+      <div class="px100">
+        <div style="border-top: gray 2px solid;">
+          <span class="fl py25"><img src="https://cdn2-www.cru.org/images/cru_logo.png.pagespeed.ce.wqT8QlyTsR.png" style="height: 28px" > © 1994-2018 Cru. All Rights Reserved.</span>
+          <span class="fr py25">Learn more at <a href="godtoolsapp.com">godtoolsapp.com</a></span>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>
