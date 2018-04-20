@@ -1,12 +1,40 @@
+:root {
+  --kg-blue: #3BA4DB; 
+  --kg-gray: #BEBEBE;
+  --kg-gray-light: #E6E6E6;
+  --kg-gray-dark: #5A5A5A;
+  --kg-white: #FFFFFF;
+}
+
 body {
   margin: 0;
+  font-family: "Source Sans Pro", sans-serif !important;
 }
 h1 {
   font-size: 96px;
-  margin: 24px 0 0 24px ;
+  margin: 24px 0 0 24px;
+  font-weight: 100;
 }
 h2 {
+  font-color: blue;
   font-size: 36px;
+  font-weight: 250;
+}
+a {
+  text-decoration: none;
+  color: var(--kg-gray-dark);
+}
+.pill {
+  border-radius: 20px;
+}
+.pill-right {
+  border-radius: 0 50px 50px 0;
+}
+.pill-left {
+  border-radius: 50px 0 0 50px;
+}
+.pill-inside {
+  padding: 4px 20px 4px 20px;
 }
 .px100 {
   padding-right: 100px;
@@ -18,6 +46,10 @@ h2 {
 .py25 {
   padding-top: 25px;
   padding-bottom: 25px;
+}
+.my10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .my25 {
   margin-top: 25px;
@@ -37,6 +69,12 @@ h2 {
 .w33 {
   width: 33%;
 }
+.w50 {
+  width: 49%;
+}
+.w100 {
+  width: 100%;
+}
 .fl {
   float: left;
 }
@@ -44,13 +82,9 @@ h2 {
   float: right;
 }
 .progress {
-  background-color: lightgray;
-  border-radius: 1em;
   width: 200px;
 }
 .progress div {
-  background-color: gray;
-  border-radius: 1em;
   height: 8px;
   width: 20%;
 }
@@ -60,4 +94,39 @@ h2 {
 .fa-chevron-up.flip{
   transform: scaleY(-1);
   transition: .2s;
+}
+.tc {
+  text-align: center;
+}
+.line {
+  border-top: var(--kg-gray-light) 2px solid;
+}
+.f11 {
+  font-size: 11px;
+}
+
+/*Colors */
+.kg-blue {
+  color: var(--kg-blue);
+}
+.kg-bg-blue {
+  background-color: var(--kg-blue);  
+}
+.kg-bg-gray {
+  background-color: var(--kg-gray);
+}
+.kg-gray-light {
+  color: var(--kg-gray-light);
+}
+.kg-bg-gray-light {
+  background-color: var(--kg-gray-light);
+}
+.kg-white {
+  color: var(--kg-white);
+}
+.kg-bg-white {
+  background-color: var(--kg-white);
+}
+.kg-bg-white-hover:hover {
+  background-color: var(--kg-white);
 }
