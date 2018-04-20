@@ -16,12 +16,15 @@ h1 {
   font-weight: 100;
 }
 h2 {
-  font-color: blue;
+  color: var(--kg-blue);
   font-size: 36px;
-  font-weight: 250;
+  font-weight: 200;
 }
 a {
   text-decoration: none;
+  color: var(--kg-gray-dark);
+}
+p {
   color: var(--kg-gray-dark);
 }
 .pill {
@@ -60,8 +63,8 @@ a {
   margin-right: 100px;
 }
 .mx144 {
-  margin-left: 144px;
-  margin-right: 144px;
+  margin-left: 44px;
+  margin-right: 44px;
 }
 .dib {
   display: inline-block;

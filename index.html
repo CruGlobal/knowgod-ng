@@ -11,7 +11,6 @@
   </head>
   <body>
     <div ng-controller="KnowGodController as knowGod">
-          {{knowGod.tmp}}
       <!-- Header -->
       <div>
         <div style="height: 60px; text-align: center">
@@ -40,18 +39,19 @@
 
      <!-- content goes in here -->
       <div class="py25 kg-bg-blue kg-white">
-        <h1 style="height: 100%" class="fl">{{knowGod.page.find('number').find('content\\:text').text()}}</h1>
-        <h2 class="mx100">{{knowGod.page.find('title').find('content\\:text').text()}}
-        </h2>
+        <h1 class="fl">{{knowGod.page.header.number.text}}</h1>
+        <h2 class="mx100 kg-white">{{knowGod.page.header.title.text}}</h2>
       </div>
       
       <div class="mx100">
-        <img src="http://via.placeholder.com/530x360" class="mx144" >{{knowGod.page.find('page').attr('background-image')}}
+        <img src="http://via.placeholder.com/530x360" class="mx144" >{{knowGod.page._background_image}}
         
-        <div ng-repeat="card in knowGod.page.find('card')">
-          <h2>{{card.length}}</h2>
-          <!--p class="mx144" ng-repeat="paragraph in card['content:paragraph']">{{paragraph['content:text']['#text']}}</p>
-          <img ng-if="card['-background-image']" src="http://via.placeholder.com/530x360" class="mx144" -->
+        <div ng-repeat="card in knowGod.page.cards.card">
+          <h2>{{card.label.text}}</h2>
+          <p class="mx144" ng-repeat="paragraph in card.paragraph">{{paragraph.text}}</p>
+          <p class="mx144">{{card.paragraph.text[0]}}</p>
+          {{card}}
+          <img ng-if="card._background-image" src="http://via.placeholder.com/530x360" class="mx144">{{card._background_image}}
         </div>
 
         <div >
@@ -60,7 +60,6 @@
         </div>
 
       </div>
-
       <!-- resources -->
       <select class="fr">
         <option value="{{trans.id}}" ng-repeat="trans in knowGod.languages.data[knowGod.language].relationships.translations.data">

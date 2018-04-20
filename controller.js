@@ -1,22 +1,97 @@
 angular.module('knowGod', [])
   .value('load_song', '')
-  .controller('KnowGodController', function($scope, $http, $window) {
-    $http.get("http://0.0.0.0:8000/knowGodResource/392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml",
+  .factory('page', function ($http, $q) {
+    var service = {};
+    var baseUrl = 'http://0.0.0.0:8000/knowGodResource/';
+    var _url = '';
+    var _finalUrl = '';
+
+    var makeUrl = function () {
+      _finalUrl = baseUrl + _url;
+      return _finalUrl;
+    }
+
+    service.setUrl = function (url) {
+      _url = url;
+    }
+
+    service.getUrl = function () {
+      return _url;
+    }
+
+    service.loadPage = function () {
+      makeUrl();
+      var deferred = $q.defer();
+      $http.get(_finalUrl, 
       {
         transformResponse: function (cnv) {
           var x2js = new X2JS();
           var aftCnv = x2js.xml_str2json(cnv);
           return aftCnv;
-      }
-    })
-    .then(function (response) {
-      console.log(response);
-    });
+        }
+      })
+      .then(function(data) {
+        deferred.resolve(data);
+      })
+      return deferred.promise;
+    }
+    return service;
+  })
+  .factory('manifest', function ($http, $q) {
+    var service = {};
+    var baseUrl = 'http://0.0.0.0:8000/knowGodResource/';
+    var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';
+    var _finalUrl = '';
+
+    var makeUrl = function () {
+      _finalUrl = baseUrl + _url;
+      return _finalUrl;
+    }
+
+    service.setUrl = function (url) {
+      _url = url;
+    }
+
+    service.getUrl = function () {
+      return _url;
+    }
+
+    service.loadPage = function () {
+      makeUrl();
+      var deferred = $q.defer();
+      $http.get(_finalUrl, 
+      {
+        transformResponse: function (cnv) {
+          var x2js = new X2JS();
+          var aftCnv = x2js.xml_str2json(cnv);
+          return aftCnv;
+        }
+      })
+      .then(function(data) {
+        deferred.resolve(data);
+      })
+      return deferred.promise;
+    }
+    return service;
+  })
+  .controller('KnowGodController', function($scope, $http, $window, page) {
 
     var knowGod = this;
     knowGod.todos = [
       {text:'learn AngularJS', done:true},
       {text:'build an AngularJS app', done:false}];
+
+    page.setUrl('743fa53e8470cd67e1ca12ea05fbd4bd64dea08b7326691cbd888b107a2836ce.xml');
+
+    knowGod.loadPage = function () {
+      page.loadPage()
+        .then(function (data) {
+          knowGod.page = data.data.page;
+        }, function (data) {
+          $window.alert(data);
+        })
+    }
+    knowGod.loadPage();
 
     var languages = function() {
       var url = 'https://mobile-content-api.cru.org/languages/';
@@ -34,25 +109,6 @@ angular.module('knowGod', [])
       });      
     };
     translations(1);
-
-    var get_xml = function(url, variable) {
-      var thing;
-      $.get("http://0.0.0.0:8000/knowGodResource/"+url, function( data ) {
-        knowGod.page = $(data);
-      });
-    };
-    get_xml('392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml', knowGod.resource );
-
-    var get_source = function(filename) {
-      //return knowGod.resource.find('[filename='+filename+']').attr('src');
-    };
-//    $window.alert(get_source('kgp-tract-bkg-image-9_1x.jpg'));
-
-
-    var page_load = function() {
-      get_xml('743fa53e8470cd67e1ca12ea05fbd4bd64dea08b7326691cbd888b107a2836ce.xml', knowGod.page);
-    };
-    page_load();
 
     var resourced = function() {
 //      var url = 'https://mobile-content-api.cru.org/drafts/678/?page_id=5';
