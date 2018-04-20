@@ -1,15 +1,18 @@
 angular.module('knowGod', [])
-  /*.factory('mcAPIservice', function($http, $sce) {
-    var yolo = 'yolo';
-
-    $http.jsonp($sce.trustAsResourceUrl('https://jsonplaceholder.typicode.com/posts/1'), {jsonpCallbackParam: 'callback'}).then(function (data) {
-      yolo = data;
-    });;
-
-    return yolo;
-  })*/
   .value('load_song', '')
   .controller('KnowGodController', function($scope, $http, $window) {
+    $http.get("http://0.0.0.0:8000/knowGodResource/392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml",
+      {
+        transformResponse: function (cnv) {
+          var x2js = new X2JS();
+          var aftCnv = x2js.xml_str2json(cnv);
+          return aftCnv;
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+    });
+
     var knowGod = this;
     knowGod.todos = [
       {text:'learn AngularJS', done:true},
