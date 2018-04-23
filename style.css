@@ -20,6 +20,12 @@ h2 {
   font-size: 36px;
   font-weight: 200;
 }
+h3 {
+  color: var(--kg-blue);
+  font-size: 24px;
+  font-weight: 200;
+  text-align: center;
+}
 a {
   text-decoration: none;
   color: var(--kg-gray-dark);
@@ -66,6 +72,9 @@ p {
   margin-left: 44px;
   margin-right: 44px;
 }
+.db {
+  display: block;
+}
 .dib {
   display: inline-block;
 }
@@ -89,7 +98,6 @@ p {
 }
 .progress div {
   height: 8px;
-  width: 20%;
 }
 .fa-chevron-up {
   transition: .2s;
@@ -107,6 +115,24 @@ p {
 .f11 {
   font-size: 11px;
 }
+
+.frame-square {
+  width: 100%;
+  padding-top: 80%;
+  overflow: hidden;
+  position: relative;
+}
+
+.frame-square img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    top: -100%;
+    right: -100%;
+    bottom: -100%;
+    left: -100%;
+  }
 
 /*Colors */
 .kg-blue {
