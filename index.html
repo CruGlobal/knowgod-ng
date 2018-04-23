@@ -44,14 +44,14 @@
       </div>
       
       <div class="mx100">
-        <img src="http://via.placeholder.com/530x360" class="mx144" >{{knowGod.page._background_image}}
+        <img src="http://via.placeholder.com/530x360" class="mx144" >{{knowGod.page["_background-image"]}}
         
         <div ng-repeat="card in knowGod.page.cards.card">
+          <img ng-if="card['_background-image'] && card['_background-image-align']=='top'" src="http://via.placeholder.com/530x360" class="mx144">
           <h2>{{card.label.text}}</h2>
           <p class="mx144" ng-repeat="paragraph in card.paragraph">{{paragraph.text}}</p>
-          <p class="mx144">{{card.paragraph.text[0]}}</p>
-          {{card}}
-          <img ng-if="card._background-image" src="http://via.placeholder.com/530x360" class="mx144">{{card._background_image}}
+          <p class="mx144" ng-repeat="text in card.paragraph.text">{{text}}</p>
+          <img ng-if="card['_background-image'] && card['_background-image-align']=='bottom'" src="http://via.placeholder.com/530x360" class="mx144">
         </div>
 
         <div >
