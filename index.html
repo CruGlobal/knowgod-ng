@@ -22,7 +22,7 @@
           </span>
 
           <div class="dib progress pill my25 kg-bg-gray-light">
-            <div class="kg-bg-gray pill"  style="width: {{knowGod.page.header.number.text/knowGod.manifest.percent()*100}}%">
+            <div class="kg-bg-gray pill"  style="width: {{knowGod.page.content.header.number.text/knowGod.manifest.percent()*100}}%">
             </div>
           </div>
 
@@ -41,16 +41,16 @@
 
      <!-- content goes in here -->
       <div ng-cloak class="py25 kg-bg-blue kg-white">
-        <h1 class="fl">{{knowGod.page.header.number.text}}</h1>
-        <h2 class="mx100 kg-white">{{knowGod.page.header.title.text}}</h2>
+        <h1 class="fl">{{knowGod.page.content.header.number.text}}</h1>
+        <h2 class="mx100 kg-white">{{knowGod.page.content.header.title.text}}</h2>
       </div>
       
       <div class="mx100">
         <div class="frame-square">
-        <img ng-src="{{knowGod.manifest.lookup(knowGod.page['_background-image'])}}" class="w100" >
+        <img ng-src="{{knowGod.manifest.lookup(knowGod.page.content['_background-image'])}}" class="w100" >
         </div>
         
-        <div ng-repeat="card in knowGod.page.cards.card">
+        <div ng-repeat="card in knowGod.page.content.cards.card">
           <h2>{{card.label.text}}</h2>
           <img ng-if="card['_background-image'] && card['_background-image-align']=='top'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
           <p class="mx144" ng-repeat="paragraph in card.paragraph">
@@ -64,14 +64,14 @@
         </div>
 
         <div class="">
-          <h3>{{knowGod.page['call-to-action'].text}}</h3>
+          <h3 ng-repeat="cta in knowGod.page.content['call-to-action']">{{cta}}</h3>
         </div>
 
 
       <!-- next/prev -->
         <div >
-          <a href="" class="py25 kg-white tc w50 fas fa-2x fa-arrow-left kg-bg-gray pill-left"></a>
-          <a href="" class="py25 kg-white tc w50 fas fa-2x fa-arrow-right kg-bg-blue pill-right"></a>
+          <a href="" ng-click="knowGod.manifest.prevPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-left kg-bg-gray pill-left"></a>
+          <a href="" ng-click="knowGod.manifest.nextPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-right kg-bg-blue pill-right"></a>
         </div>
 
       </div>
@@ -88,7 +88,7 @@
           {{resource.attributes.name}}
         </option>
       </select>
-      <p>{{knowGod.page}}</p>
+      <p>{{knowGod.page.content}}</p>
 
       <!-- Footer -->
       <div class="px100">
