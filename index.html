@@ -15,7 +15,7 @@
     <div ng-controller="KnowGodController as knowGod">
       <!-- Header -->
       <div>
-        <div style="height: 60px; text-align: center">
+        <div style="height: 60px; text-align: center; border-bottom: gray 1px solid;">
           <span ng-click="hideLanguage = !hideLanguage" ng-init="hideLanguage=1" class="fl p25">
           {{knowGod.language}}
           <i ng-class="hideLanguage ? 'flip' : '' " class="fas fa-chevron-up"></i>
@@ -39,31 +39,52 @@
         </div>
       </div>
 
-     <!-- content goes in here -->
-      <div ng-cloak class="py25 kg-bg-blue kg-white">
-        <h1 class="fl">{{knowGod.page.content.header.number.text}}</h1>
+   <!-- content goes in here -->
+    <!-- Blue Header -->
+      <div ng-if="knowGod.page.content.header" class="py25 kg-bg-blue kg-white">
+        <h1 class="fl ml25">{{knowGod.page.content.header.number.text}}</h1>
         <h2 class="mx100 kg-white">{{knowGod.page.content.header.title.text}}</h2>
       </div>
       
       <div class="mx100">
-        <div class="frame-square">
+       <!-- Hero text -->
+        <div ng-if="knowGod.page.content.hero">
+          <h1 class="kg-blue">{{knowGod.page.content.hero.heading.text}}</h1>
+          <p>{{knowGod.page.content.hero.paragraph.text}}</p>
+          <div ng-repeat="paragraph in knowGod.page.content.hero.paragraph">
+            <p class="tc">{{paragraph.text}}</p>
+            <a ng-if="paragraph.button" href="http://www.{{paragraph.button._url}}" class="button w100 kg-bg-blue kg-white">{{paragraph.button.text}}</a>
+
+          </div>
+        </div>
+
+        <div ng-if="knowGod.page.content['_background-image']" class="frame-square">
         <img ng-src="{{knowGod.manifest.lookup(knowGod.page.content['_background-image'])}}" class="w100" >
         </div>
-        
+
+      <!-- Cards -->        
         <div ng-repeat="card in knowGod.page.content.cards.card">
           <h2>{{card.label.text}}</h2>
+          
           <img ng-if="card['_background-image'] && card['_background-image-align']=='top'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
+
           <p class="mx144" ng-repeat="paragraph in card.paragraph">
             <img ng-if="paragraph.image" ng-src="{{knowGod.manifest.lookup(paragraph.image['_resource'])}}" class="w100">
-          <span class="db">
-            {{paragraph.text}}
-          </span>
+            <span class="db">
+              {{paragraph.text}}
+            </span>
+            <!--span ng-repeat="text in paragraph.text">{{text}}</span-->
+
           </p>
+          
           <p class="mx144" ng-repeat="text in card.paragraph.text">{{text}}</p>
+          
           <img ng-if="card['_background-image'] && card['_background-image-align']=='bottom'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
         </div>
 
-        <div class="">
+
+       <!-- call to action -->
+        <div ng-if="knowGod.page.content['call-to-action']">
           <h3 ng-repeat="cta in knowGod.page.content['call-to-action']">{{cta}}</h3>
         </div>
 

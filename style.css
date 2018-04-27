@@ -12,7 +12,7 @@ body {
 }
 h1 {
   font-size: 96px;
-  margin: 24px 0 0 24px;
+  margin: 0;
   font-weight: 100;
 }
 h2 {
@@ -32,6 +32,25 @@ a {
 }
 p {
   color: var(--kg-gray-dark);
+}
+.button {
+/*  font-family: $font-family; */
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  padding: 9px 15px 9px 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.button:hover {
+  text-decoration: none;
 }
 .pill {
   border-radius: 20px;
@@ -63,6 +82,9 @@ p {
 .my25 {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+.ml25 {
+  margin-left: 25px;
 }
 .mx100 {
   margin-left: 100px;
