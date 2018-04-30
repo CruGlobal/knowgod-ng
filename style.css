@@ -49,6 +49,10 @@ p {
 .r {
   right: 0;
 }
+.share {
+  width: 24px;
+  height: 24px;
+}
 .button {
 /*  font-family: $font-family; */
   display: inline-block;
@@ -94,6 +98,15 @@ p {
 .my10 {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.m10 {
+  margin: 10px;
+}
+.mt15 {
+  margin: 15px 25px 25px 25px;
+}
+.m25 {
+  margin: 22px;
 }
 .my25 {
   margin-top: 25px;
@@ -147,6 +160,9 @@ p {
 .tc {
   text-align: center;
 }
+.tr {
+  text-align: right;
+}
 .line {
   border-top: var(--kg-gray-light) 2px solid;
 }
@@ -181,6 +197,9 @@ p {
 }
 .kg-bg-gray {
   background-color: var(--kg-gray);
+}
+.kg-bg-gray-dark {
+  background-color: var(--kg-gray-dark);
 }
 .kg-gray-light {
   color: var(--kg-gray-light);

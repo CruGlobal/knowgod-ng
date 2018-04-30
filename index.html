@@ -2,8 +2,7 @@
 <html ng-app="knowGod">
   <head>
     <base href="/">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
@@ -26,8 +25,10 @@
             <div class="kg-bg-gray pill"  style="width: {{knowGod.manifest.percent()}}%">
             </div>
           </div>
-
-          <span class="fas fa-share-alt r p25 absolute">
+          
+          <span class="r  mt15 absolute tc pill" ng-init="share=1" ng-click="share = !share" ng-class="{'kg-bg-gray-light' : !share}">
+            <a class="m10 db share"><i class="fas " ng-class="{'fa-share-alt' : share, 'fa-times' : !share}"></i></a>
+            <a class="m10 db pill kg-bg-gray-dark share kg-gray-light" ng-hide="share" ng-repeat="link in ['fab fa-facebook-f', 'fab fa-twitter', 'fas fa-envelope', 'fas fa-link']"><i class={{link}}></i></a>
           </span>
         </div>
 
