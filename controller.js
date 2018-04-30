@@ -54,7 +54,9 @@ angular.module('knowGod', ['ngRoute'])
       return baseUrl+src;
     }
     service.percent = function () {
-      return _manifest.find('page').length;
+      var page_number = _manifest.find("[src=\""+page.getUrl()+"\"]").index() + 1;
+      console.log(page_number)
+      return (page_number / _manifest.find('page').length)*100;
     }
 
    //Navigate tool
@@ -128,12 +130,12 @@ angular.module('knowGod', ['ngRoute'])
     manifest.loadManifest().then(function(data){
       knowGod.manifest = manifest;
     })
-    page.setUrl('67b7c3d321c94ff23bc585d15ee8e7f15c7cec493c8074973b251053977d5ecb.xml');
+//    page.setUrl('67b7c3d321c94ff23bc585d15ee8e7f15c7cec493c8074973b251053977d5ecb.xml');
 //    page.setUrl('743fa53e8470cd67e1ca12ea05fbd4bd64dea08b7326691cbd888b107a2836ce.xml');
 //    page.setUrl('f1165b62b93e61461f64446b3198c3a9245c9f784c1fcf25efa7fd71b85e21f0.xml');
 //    page.setUrl('908a4c4c092d97db3f3c7b59a3fdb03ecf4da204bfd3f283568b7a2614635ee4.xml');
 //    page.setUrl('90feba69d384d8d99f67f7ad024797577c3ca46be73a3c0f7928b63fc316669e.xml');
-//    page.setUrl('9ba065f199f726187fddd8a7be640b3f9e3e8b63bb9a95457a0da8d79cef0063.xml');
+    page.setUrl('9ba065f199f726187fddd8a7be640b3f9e3e8b63bb9a95457a0da8d79cef0063.xml');
 
     knowGod.loadPage = function () {
       page.loadPage()
