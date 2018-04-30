@@ -204,6 +204,9 @@ p {
 .kg-gray-light {
   color: var(--kg-gray-light);
 }
+.kg-gray-dark {
+  color: var(--kg-gray-dark);
+}
 .kg-bg-gray-light {
   background-color: var(--kg-gray-light);
 }
