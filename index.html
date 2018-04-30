@@ -15,10 +15,11 @@
     <div ng-controller="KnowGodController as knowGod">
       <!-- Header -->
       <div>
-        <div style="height: 60px; text-align: center; border-bottom: gray 1px solid;">
-          <span ng-click="hideLanguage = !hideLanguage" ng-init="hideLanguage=1" class="fl p25">
-          {{knowGod.language}}
-          <i ng-class="hideLanguage ? 'flip' : '' " class="fas fa-chevron-up"></i>
+        <div class="header tc relative">
+          <span ng-click="knowGod.language.hideLang()" class="l p25 absolute">
+            <i class="fas fa-language"></i>
+            {{knowGod.language.getLang().attributes.name}}
+            <i ng-class="knowGod.language.langHidden ? 'flip' : '' " class="fas fa-chevron-up"></i>
           </span>
 
           <div class="dib progress pill my25 kg-bg-gray-light">
@@ -26,19 +27,18 @@
             </div>
           </div>
 
-          <span class="fas fa-share-alt fr p25">
+          <span class="fas fa-share-alt r p25 absolute">
           </span>
         </div>
 
      <!-- languages -->
-        <div ng-model="knowGod.language" ng-init="knowGod.language='1'" ng-hide="hideLanguage" class="px100 py25 kg-bg-gray-light">
-          <span ng-repeat="lang in knowGod.languages.data" class="w33 dib pill kg-bg-white-hover">
-            <a class="w100 dib pill-inside" href="{{lang.id}}">
+        <div ng-hide="knowGod.language.langHidden" class="px100 py25 kg-bg-gray-light">
+          <span ng-repeat="lang in knowGod.language.langs" class="w33 dib pill kg-bg-white-hover" ng-class="{'kg-bg-white' : (lang == knowGod.language.getLang())}">
+            <a class="w100 dib pill-inside" href="{{lang.attributes.code}}" ng-click="knowGod.language.setLang(lang); knowGod.language.hideLang() ">
             {{lang.attributes.name}}</a>
           </span>
         </div>
       </div>
-
    <!-- content goes in here -->
     <!-- Blue Header -->
       <div ng-if="knowGod.page.content.header" class="py25 kg-bg-blue kg-white">
@@ -82,12 +82,10 @@
           <img ng-if="card['_background-image'] && card['_background-image-align']=='bottom'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
         </div>
 
-
        <!-- call to action -->
         <div ng-if="knowGod.page.content['call-to-action']">
           <h3 ng-repeat="cta in knowGod.page.content['call-to-action']">{{cta}}</h3>
         </div>
-
 
       <!-- next/prev -->
         <div class="my25">
@@ -96,26 +94,14 @@
         </div>
 
       </div>
-      <!-- resources -->
-      <select class="fr">
-        <option value="{{trans.id}}" ng-repeat="trans in knowGod.languages.data[knowGod.language].relationships.translations.data">
-          {{trans.id}}
-        </option>
-      </select>
 
-      <p>{{knowGod.language}}</p>
-      <select ng-model="knowGod.language">
-        <option value="{{resource.id}}" ng-repeat="resource in knowGod.languages.data">
-          {{resource.attributes.name}}
-        </option>
-      </select>
       <p>{{knowGod.page.content}}</p>
 
       <!-- Footer -->
       <div class="px100">
         <div class="line kg-gray-light f11">
           <span class="fl py25"><img ng-src="https://cdn2-www.cru.org/images/cru_logo.png.pagespeed.ce.wqT8QlyTsR.png" style="height: 28px">© 1994-2018 Cru. All Rights Reserved.</span>
-          <span class="fr py25">Learn more at <a class="kg-gray-light" href="godtoolsapp.com">godtoolsapp.com</a></span>
+          <span class="fr py25">Learn more at <a class="kg-gray-light" href="knowgod.com">knowGod.com</a></span>
         </div>
       </div>
 

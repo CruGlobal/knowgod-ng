@@ -6,11 +6,44 @@ angular.module('knowGod', ['ngRoute'])
 /*    $routeProvider
       .when('/en', {
         title: 'KnowGod.com'
-      })*/
-      
+      })*/  
 
   })
-  .factory('manifest', function ($http, $q, $window, page) {
+  .factory('languages', function ($http, $q) {
+    var service = {};
+    var _url = 'https://mobile-content-api.cru.org/languages/';
+    var _language = {};
+
+    service.langs = {};
+
+    service.setLang = function(lang) {
+      _language = lang;
+    }
+    service.getLang = function() {
+      return _language;
+    }
+    service.langHidden = true;
+
+    service.hideLang = function() {
+      service.langHidden = !service.langHidden;
+    }
+
+
+
+
+    service.loadLanguages = function () {
+      var deferred = $q.defer();
+      $http.get(_url).then(function(data) {
+        deferred.resolve(data);
+        service.langs = $(data.data)[0].data;
+        service.setLang(service.langs.filter(function(x) { return x.id == 1 })[0]);
+      })
+      return deferred.promise;
+    }
+
+    return service;
+  })
+  .factory('manifest', function ($http, $q, page) {
     var service = {};
     var baseUrl = 'http://0.0.0.0:8000/knowGodResource/';
     var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';
@@ -55,7 +88,6 @@ angular.module('knowGod', ['ngRoute'])
     }
     service.percent = function () {
       var page_number = _manifest.find("[src=\""+page.getUrl()+"\"]").index() + 1;
-      console.log(page_number)
       return (page_number / _manifest.find('page').length)*100;
     }
 
@@ -124,18 +156,22 @@ angular.module('knowGod', ['ngRoute'])
     }
     return service;
   })
-  .controller('KnowGodController', function($scope, $http, $window, page, manifest) {
+  .controller('KnowGodController', function($scope, $http, $window, page, manifest, languages) {
     var knowGod = this;
+
+    languages.loadLanguages().then(function(data){
+      knowGod.language = languages;
+    })
 
     manifest.loadManifest().then(function(data){
       knowGod.manifest = manifest;
     })
-//    page.setUrl('67b7c3d321c94ff23bc585d15ee8e7f15c7cec493c8074973b251053977d5ecb.xml');
+    page.setUrl('67b7c3d321c94ff23bc585d15ee8e7f15c7cec493c8074973b251053977d5ecb.xml');
 //    page.setUrl('743fa53e8470cd67e1ca12ea05fbd4bd64dea08b7326691cbd888b107a2836ce.xml');
 //    page.setUrl('f1165b62b93e61461f64446b3198c3a9245c9f784c1fcf25efa7fd71b85e21f0.xml');
 //    page.setUrl('908a4c4c092d97db3f3c7b59a3fdb03ecf4da204bfd3f283568b7a2614635ee4.xml');
 //    page.setUrl('90feba69d384d8d99f67f7ad024797577c3ca46be73a3c0f7928b63fc316669e.xml');
-    page.setUrl('9ba065f199f726187fddd8a7be640b3f9e3e8b63bb9a95457a0da8d79cef0063.xml');
+//    page.setUrl('9ba065f199f726187fddd8a7be640b3f9e3e8b63bb9a95457a0da8d79cef0063.xml');
 
     knowGod.loadPage = function () {
       page.loadPage()
@@ -146,15 +182,6 @@ angular.module('knowGod', ['ngRoute'])
     }
     page.loadPage();
     knowGod.page = page;
-
-
-    var languages = function() {
-      var url = 'https://mobile-content-api.cru.org/languages/';
-      $http.get(url).then(function(response){
-        knowGod.languages = response.data;
-      });
-    }
-    languages();
 
     var translations = function(language) {
   //    var url = 'https://mobile-content-api.cru.org/languages/'+language+'?include=custom_pages'  ;

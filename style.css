@@ -33,6 +33,22 @@ a {
 p {
   color: var(--kg-gray-dark);
 }
+.header {
+  height: 60px;
+  border-bottom: 1px var(--kg-gray-light) solid;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.l {
+  left: 0;
+}
+.r {
+  right: 0;
+}
 .button {
 /*  font-family: $font-family; */
   display: inline-block;
