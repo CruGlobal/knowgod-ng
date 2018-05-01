@@ -49,6 +49,9 @@ p {
 .r {
   right: 0;
 }
+.v-mid {
+  vertical-align: middle;
+}
 .share {
   width: 24px;
   height: 24px;

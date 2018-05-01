@@ -16,7 +16,7 @@ angular.module('knowGod', ['ngRoute'])
 
     service.langs = {};
 
-    service.setLang = function(lang) {
+    service.setLang = function(lang) {  //this needs to be tied into the URL/location bar via language code
       _language = lang;
     }
     service.getLang = function() {
@@ -28,12 +28,9 @@ angular.module('knowGod', ['ngRoute'])
       service.langHidden = !service.langHidden;
     }
 
-
-
-
     service.loadLanguages = function () {
       var deferred = $q.defer();
-      $http.get(_url).then(function(data) {
+      $http.get(_url, {cache: true}).then(function(data) {
         deferred.resolve(data);
         service.langs = $(data.data)[0].data;
         service.setLang(service.langs.filter(function(x) { return x.id == 1 })[0]);
@@ -43,14 +40,15 @@ angular.module('knowGod', ['ngRoute'])
 
     return service;
   })
-  .factory('manifest', function ($http, $q, page) {
+  .factory('manifest', function ($http, $q, page) { //should be called by url?
     var service = {};
     var baseUrl = 'http://0.0.0.0:8000/knowGodResource/';
     var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';
     var _finalUrl = '';
     var _manifest = '';
+    var _page_number = 3;  //this needs to be tied into the URL/location
 
-    var makeUrl = function () {
+    var makeUrl = function () { 
       _finalUrl = baseUrl + _url;
       return _finalUrl;
     }
@@ -67,17 +65,15 @@ angular.module('knowGod', ['ngRoute'])
     service.loadManifest = function () {
       makeUrl();
       var deferred = $q.defer();
-      $http.get(_finalUrl/*, 
-      {
-        transformResponse: function (cnv) {
-          var x2js = new X2JS();
-          var aftCnv = x2js.xml_str2json(cnv);
-          return aftCnv;
-        }
-      }*/)
+      $http.get(_finalUrl, {cache: true})
       .then(function(data) {
         deferred.resolve(data);
         _manifest = $(data.data);
+
+        page.setUrl($(_manifest.find("page").get(_page_number-1)).attr("src"));
+
+        page.loadPage();
+
       })
       return deferred.promise;
     }
@@ -87,8 +83,8 @@ angular.module('knowGod', ['ngRoute'])
       return baseUrl+src;
     }
     service.percent = function () {
-      var page_number = _manifest.find("[src=\""+page.getUrl()+"\"]").index() + 1;
-      return (page_number / _manifest.find('page').length)*100;
+      _page_number = _manifest.find("[src=\""+page.getUrl()+"\"]").index() + 1;
+      return (_page_number / _manifest.find('page').length)*100;
     }
 
    //Navigate tool
@@ -146,7 +142,8 @@ angular.module('knowGod', ['ngRoute'])
           var x2js = new X2JS();
           var aftCnv = x2js.xml_str2json(cnv);
           return aftCnv;
-        }
+        },
+        cache: true
       })
       .then(function(data) {
   //      deferred.resolve(data);
@@ -166,27 +163,13 @@ angular.module('knowGod', ['ngRoute'])
     manifest.loadManifest().then(function(data){
       knowGod.manifest = manifest;
     })
-//    page.setUrl('67b7c3d321c94ff23bc585d15ee8e7f15c7cec493c8074973b251053977d5ecb.xml');
-    page.setUrl('743fa53e8470cd67e1ca12ea05fbd4bd64dea08b7326691cbd888b107a2836ce.xml');
-//    page.setUrl('f1165b62b93e61461f64446b3198c3a9245c9f784c1fcf25efa7fd71b85e21f0.xml');
-//    page.setUrl('908a4c4c092d97db3f3c7b59a3fdb03ecf4da204bfd3f283568b7a2614635ee4.xml');
-//    page.setUrl('90feba69d384d8d99f67f7ad024797577c3ca46be73a3c0f7928b63fc316669e.xml');
-//    page.setUrl('9ba065f199f726187fddd8a7be640b3f9e3e8b63bb9a95457a0da8d79cef0063.xml');
 
-    knowGod.loadPage = function () {
-      page.loadPage()
-        .then(function (data) {
-          knowGod.page = data.data.page;
-        }, function (data) {
-        })
-    }
-    page.loadPage();
     knowGod.page = page;
 
     var translations = function(language) {
   //    var url = 'https://mobile-content-api.cru.org/languages/'+language+'?include=custom_pages'  ;
       var url = 'https://mobile-content-api.cru.org/translations';
-      $http.get(url).then(function(response){
+      $http.get(url, {cache: true}).then(function(response){
         knowGod.translations = response.data;
       });      
     };
