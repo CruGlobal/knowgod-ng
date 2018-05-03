@@ -1,0 +1,32 @@
+{
+  "name": "knowGod-ng",
+  "version": "1.0.0",
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "xml-js": "^1.6.2",
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-angularjs-annotate": "^0.7.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "html-webpack-exclude-assets-plugin": "^0.0.5",
+    "html-webpack-plugin": "^2.28.0",
+    "inline-manifest-webpack-plugin": "^3.0.1",
+    "webpack-subresource-integrity": "^1.0.1",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack -p",
+    "build:analyze": "webpack -p --env.analyze",
+    "test": "karma start",
+    "lint": "eslint '@(app|test)/**/*.js'",
+    "angular-gettext-extract": "angular-gettext-cli --files './app/***.@(js|html)' --exclude '**/*.spec.js' --dest './languages/ert.pot'"
+  }
+}
