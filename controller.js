@@ -1,12 +1,26 @@
 angular.module('knowGod', ['ngRoute'])
-  .config( function ($locationProvider, $httpProvider, $qProvider, $routeProvider) {
+  .config(function ($locationProvider, $httpProvider, $qProvider, $routeProvider) {
     $locationProvider.html5Mode(true).hashPrefix('');
     $httpProvider.useApplyAsync(true);
 
-/*    $routeProvider
-      .when('/en', {
-        title: 'KnowGod.com'
-      })*/  
+    $routeProvider
+      .when('/:langCode', {
+        title: 'KnowGod.com', 
+        controller: 'KnowGodController'
+      })
+      .when('/:langCode/:toolCode', {
+        title: 'KnowGod.com', 
+        controller: 'KnowGodController'
+      })
+      .when('/:langCode/:toolCode/:pageNumber', {
+        title: 'KnowGod.com', 
+        controller: 'KnowGodController'
+      })      
+      .otherwise({
+        title: 'KnowGod.com',
+        redirectTo: '/',
+        controller: 'KnowGodController'
+      });
 
   })
   .factory('languages', function ($http, $q) {
@@ -40,7 +54,7 @@ angular.module('knowGod', ['ngRoute'])
 
     return service;
   })
-  .factory('manifest', function ($http, $q, page) { //should be called by url?
+  .factory('manifest', function ($routeParams, $http, $q, page) { //should be called by url?
     var service = {};
     var baseUrl = 'http://0.0.0.0:8000/knowGodResource/';
     var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';
@@ -98,6 +112,7 @@ angular.module('knowGod', ['ngRoute'])
         console.log('end of pages');
       }
       console.log(page.getUrl());
+      console.log($routeParams.pageNumber, $routeParams.toolCode, $routeParams.langCode);
     }
     service.prevPage = function () {
       var prevUrl = _manifest.find("[src=\""+page.getUrl()+"\"]").prev().attr("src")
@@ -153,8 +168,9 @@ angular.module('knowGod', ['ngRoute'])
     }
     return service;
   })
-  .controller('KnowGodController', function($scope, $http, $window, page, manifest, languages) {
+  .controller('KnowGodController', function($routeParams, $scope, $http, $window, page, manifest, languages) {
     var knowGod = this;
+
 
     languages.loadLanguages().then(function(data){
       knowGod.language = languages;
@@ -166,6 +182,8 @@ angular.module('knowGod', ['ngRoute'])
 
     knowGod.page = page;
 
+    $routeParams.pageNumber = 1;
+
     var translations = function(language) {
   //    var url = 'https://mobile-content-api.cru.org/languages/'+language+'?include=custom_pages'  ;
       var url = 'https://mobile-content-api.cru.org/translations';
@@ -175,7 +193,12 @@ angular.module('knowGod', ['ngRoute'])
     };
     translations(1);
 
-  });
+  })
+  .run(['$rootScope', '$route', function($rootScope, $route) {
+    $rootScope.$on('$routeChangeSuccess', function() {
+        document.title = $route.current.title;
+    });
+  }]);
 
 
 

@@ -12,6 +12,7 @@
   </head>
   <body>
     <div ng-controller="KnowGodController as knowGod">
+      {{knowGod.pagenumber}}
       <!-- Header -->
       <div>
         <div class="header tc relative">
@@ -35,7 +36,7 @@
      <!-- languages -->
         <div ng-hide="knowGod.language.langHidden" class="px100 py25 kg-bg-gray-light">
           <span ng-repeat="lang in knowGod.language.langs" class="w33 dib pill kg-bg-white-hover" ng-class="{'kg-bg-white' : (lang == knowGod.language.getLang())}">
-            <a class="w100 dib pill-inside" href="{{lang.attributes.code}}" ng-click="knowGod.language.setLang(lang); knowGod.language.hideLang() ">
+            <a class="w100 dib pill-inside" href="{{lang.attributes.code}}/kgp/3" ng-click="knowGod.language.setLang(lang); knowGod.language.hideLang() ">
             {{lang.attributes.name}}</a>
           </span>
         </div>
