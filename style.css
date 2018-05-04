@@ -9,8 +9,10 @@
 body {
   margin: 0;
   font-family: "Source Sans Pro", sans-serif !important;
+  color: var(--kg-gray-dark);
 }
 h1 {
+  color: var(--kg-blue);
   font-size: 96px;
   margin: 0;
   font-weight: 100;
@@ -30,13 +32,16 @@ a {
   text-decoration: none;
   color: var(--kg-gray-dark);
 }
-p {
-  color: var(--kg-gray-dark);
-}
+/*Specific Area css*/
 .header {
   height: 60px;
   border-bottom: 1px var(--kg-gray-light) solid;
 }
+.share {
+  width: 24px;
+  height: 24px;
+}
+/*Helper class css*/
 .relative {
   position: relative;
 }
@@ -51,10 +56,6 @@ p {
 }
 .v-mid {
   vertical-align: middle;
-}
-.share {
-  width: 24px;
-  height: 24px;
 }
 .b-white {
   border: 2px solid var(--kg-white);
@@ -194,7 +195,7 @@ p {
     left: -100%;
   }
 
-/*Colors */
+/*CSS Colors */
 .kg-blue {
   color: var(--kg-blue);
 }

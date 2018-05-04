@@ -7,7 +7,6 @@
   </head>
   <body>
     <div ng-controller="KnowGodController as knowGod">
-      {{knowGod.pagenumber}}
       <!-- Header -->
       <div>
         <div class="header tc relative">
@@ -37,62 +36,68 @@
         </div>
       </div>
    <!-- content goes in here -->
-    <!-- Blue Header -->
-      <div ng-if="knowGod.page.content.header" class="py25 kg-bg-blue kg-white">
-        <h1 class="fl ml25">{{knowGod.page.content.header.number.text}}</h1>
-        <h2 class="mx100 kg-white">{{knowGod.page.content.header.title.text}}</h2>
-      </div>
-      
-      <div class="mx100">
-       <!-- Hero text -->
-        <div ng-if="knowGod.page.content.hero">
-          <h1 class="kg-blue">{{knowGod.page.content.hero.heading.text}}</h1>
-          <p>{{knowGod.page.content.hero.paragraph.text}}</p>
-          <div ng-repeat="paragraph in knowGod.page.content.hero.paragraph">
-            <p class="tc">{{paragraph.text}}</p>
-            <a ng-if="paragraph.button" href="http://www.{{paragraph.button._url}}" class="button w100 kg-bg-blue kg-white">{{paragraph.button.text}}</a>
+      <div ng-repeat="element in knowGod.page.content.elements[0].elements">
+        <!-- Blue Header -->
+        <div ng-if="element.name==='header'" class="py25 kg-bg-blue kg-white">
+          <h1 class="fl ml25 kg-white">{{element.elements[0].elements[0].elements[0].text}}</h1>
+          <h2 class="mx100 kg-white">{{element.elements[1].elements[0].elements[0].text}}</h2>
+        </div>
+        
+        <!-- Hero text -->
+        <div ng-if="element.name==='hero'" class="mx100">
+          <div ng-if="knowGod.page.content.hero">
+            <h1 class="kg-blue">{{knowGod.page.content.hero.heading.text}}</h1>
+            <p>{{knowGod.page.content.hero.paragraph.text}}</p>
+            <div ng-repeat="paragraph in knowGod.page.content.hero.paragraph">
+              <p class="tc">{{paragraph.text}}</p>
+              <a ng-if="paragraph.button" href="http://www.{{paragraph.button._url}}" class="button w100 kg-bg-blue kg-white">{{paragraph.button.text}}</a>
 
+            </div>
           </div>
         </div>
 
-        <div ng-if="knowGod.page.content['_background-image']" class="frame-square">
-        <img ng-src="{{knowGod.manifest.lookup(knowGod.page.content['_background-image'])}}" class="w100" >
+        <!--div ng-if="knowGod.page.content.elements[0].attributes['background-image'] && !background-image-display" class="frame-squar">
+          <img ng-src="{{knowGod.manifest.lookup(knowGod.page.content.elements[0].attributes['background-image'])}}" class="w100" >Background image for page
+        </div-->
+
+        <!-- Cards -->
+        <div ng-if="element.name==='cards'">
+          <div ng-repeat="card in element.elements">
+            <div ng-repeat="element in card.elements">
+              <h2 ng-if="element.name==='label'">{{element.elements[0].elements[0].text}}</h2>
+              
+              <img ng-if="card['_background-image'] && card['_background-image-align']=='top'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
+
+              <p ng-if="element.name==='content:paragraph'" class="mx144">
+                <span ng-repeat="el in element.elements">
+                  <img ng-if="el.name==='content:image'" ng-src="{{knowGod.manifest.lookup(el.attributes.resource)}}" class="w100">
+                  <span ng-if="el.name==='content:text'" class="db">
+                    {{el.elements[0].text}}
+                  </span>
+                </span>
+              </p>
+              
+              <p class="mx144" ng-repeat="text in card.paragraph.text">{{text}}</p>
+              
+              <img ng-if="card['_background-image'] && card['_background-image-align']=='bottom'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
+            </div>
+          </div>
         </div>
 
-      <!-- Cards -->        
-        <div ng-repeat="card in knowGod.page.content.cards.card">
-          <h2>{{card.label.text}}</h2>
-          
-          <img ng-if="card['_background-image'] && card['_background-image-align']=='top'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
-
-          <p class="mx144" ng-repeat="paragraph in card.paragraph">
-            <img ng-if="paragraph.image" ng-src="{{knowGod.manifest.lookup(paragraph.image['_resource'])}}" class="w100">
-            <span class="db">
-              {{paragraph.text}}
-            </span>
-            <!--span ng-repeat="text in paragraph.text">{{text}}</span-->
-
-          </p>
-          
-          <p class="mx144" ng-repeat="text in card.paragraph.text">{{text}}</p>
-          
-          <img ng-if="card['_background-image'] && card['_background-image-align']=='bottom'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
-        </div>
-
-       <!-- call to action -->
-        <div ng-if="knowGod.page.content['call-to-action']">
-          <h3 ng-repeat="cta in knowGod.page.content['call-to-action']">{{cta}}</h3>
-        </div>
-
-      <!-- next/prev -->
-        <div class="my25">
-          <a href="" ng-click="knowGod.manifest.prevPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-left kg-bg-gray pill-left"></a>
-          <a href="" ng-click="knowGod.manifest.nextPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-right kg-bg-blue pill-right"></a>
+        <!-- call to action -->     
+        <div ng-if="element.name==='call-to-action'">
+          <h3 ng-repeat="cta in element.elements[0].elements">{{cta.text}}</h3>
         </div>
 
       </div>
 
-      <p>{{knowGod.page.content}}</p>
+          <!-- next/prev -->
+      <div class="my25">
+        <a href="" ng-click="knowGod.manifest.prevPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-left kg-bg-gray pill-left"></a>
+        <a href="" ng-click="knowGod.manifest.nextPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-right kg-bg-blue pill-right"></a>
+      </div>
+
+      <p>{{knowGod.page.content.elements}}</p>
 
       <!-- Footer -->
       <div class="px100">

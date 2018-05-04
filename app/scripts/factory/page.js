@@ -1,7 +1,7 @@
 angular.module('knowGod')
   .factory('page', function ($http, $q) {
     var service = {};
-    var baseUrl = 'http://0.0.0.0:8000/knowGodResource/';
+    var baseUrl = 'http://localhost:9000/knowGodResource/';
     var _url = '';
     var _finalUrl = '';
 
@@ -26,14 +26,15 @@ angular.module('knowGod')
       {
         transformResponse: function (cnv) {
           var convert = require('xml-js');
-          var aftCnv = convert.xml2json(cnv, {compact: false, spaces: 4});
+          var aftCnv = convert.xml2json(cnv, {compact: false});
           return aftCnv;
         },
         cache: true
       })
       .then(function(data) {
   //      deferred.resolve(data);
-        service.content = data.data.page;
+        service.content = JSON.parse(data.data);
+
       })
    //   return deferred.promise;
     }

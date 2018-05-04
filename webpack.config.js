@@ -145,7 +145,13 @@ module.exports = env => {
     devtool: "source-map",
     devServer: {
       historyApiFallback: true,
-      port: 9000
+      port: 9000,
+      proxy: {
+        '/knowGodResource/': {
+          target: 'http://0.0.0.0:8000/',
+          changeOrigin: true
+        }
+      }
     }
   };
 };
