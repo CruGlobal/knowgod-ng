@@ -22,7 +22,7 @@
             </div>
           </div>
           
-          <span class="r mt15 absolute tc pill" ng-init="share=1" ng-click="share = !share" ng-class="{'kg-bg-gray-light' : !share}">
+          <span class="r mt15 absolute tc pill" ng-init="share=1" ng-click="share = !share" ng-class="{'kg-bg-gray-light b-white' : !share}">
             <a class="m10 db share"><i class="fas " ng-class="{'fa-share-alt' : share, 'fa-times' : !share}"></i></a>
             <a href="" class="m10 db pill kg-bg-gray-dark share kg-gray-light" ng-hide="share" ng-repeat="link in ['fab fa-facebook-f', 'fab fa-twitter', 'fas fa-envelope', 'fas fa-link']"><i class="{{link}} v-mid"></i></a>
           </span>

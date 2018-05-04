@@ -56,6 +56,9 @@ p {
   width: 24px;
   height: 24px;
 }
+.b-white {
+  border: 2px solid var(--kg-white);
+}
 .button {
 /*  font-family: $font-family; */
   display: inline-block;
