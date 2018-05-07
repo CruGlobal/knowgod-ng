@@ -17,7 +17,7 @@
           </span>
 
           <div class="dib progress pill my25 kg-bg-gray-light">
-            <div class="kg-bg-gray pill"  style="width: {{knowGod.manifest.percent()}}%">
+            <div class="kg-bg-gray pill"  style="width: {{knowGod.manifest.percent()}} %">
             </div>
           </div>
           
@@ -39,20 +39,25 @@
       <div ng-repeat="element in knowGod.page.content.elements[0].elements">
         <!-- Blue Header -->
         <div ng-if="element.name==='header'" class="py25 kg-bg-blue kg-white">
-          <h1 class="fl ml25 kg-white">{{element.elements[0].elements[0].elements[0].text}}</h1>
-          <h2 class="mx100 kg-white">{{element.elements[1].elements[0].elements[0].text}}</h2>
+          <div ng-repeat="el in element.elements">
+            <h1 ng-if="el.name==='number'" class="fl ml25 kg-white">{{el.elements[0].elements[0].text}}</h1>
+            <h2 ng-if="el.name==='title'" class="mx100 kg-white">{{el.elements[0].elements[0].text}}</h2>
+          </div>
         </div>
         
         <!-- Hero text -->
         <div ng-if="element.name==='hero'" class="mx100">
-          <div ng-if="knowGod.page.content.hero">
-            <h1 class="kg-blue">{{knowGod.page.content.hero.heading.text}}</h1>
-            <p>{{knowGod.page.content.hero.paragraph.text}}</p>
-            <div ng-repeat="paragraph in knowGod.page.content.hero.paragraph">
-              <p class="tc">{{paragraph.text}}</p>
-              <a ng-if="paragraph.button" href="http://www.{{paragraph.button._url}}" class="button w100 kg-bg-blue kg-white">{{paragraph.button.text}}</a>
-
-            </div>
+          <div ng-repeat="element in element.elements"> 
+            <h1 ng-if="element.name==='heading'" class="kg-blue">{{element.elements[0].elements[0].text}}</h1>
+            <p ng-if="element.name==='content:paragraph'">
+              <span ng-repeat="el in element.elements">
+                <img ng-if="el.name==='content:image'" ng-src="{{knowGod.manifest.lookup(el.attributes.resource)}}" class="w100">
+                <span ng-if="el.name==='content:text'" class="db tc">
+                  {{el.elements[0].text}}
+                </span>
+                <a ng-if="el.name==='content:button'" href="http://www.{{el.attributes.url}}" class="button w100 kg-bg-blue kg-white">{{el.attributes.url}}</a>
+              </span>
+            </p>
           </div>
         </div>
 
@@ -61,38 +66,42 @@
         </div-->
 
         <!-- Cards -->
-        <div ng-if="element.name==='cards'">
+        <div ng-if="element.name==='cards'" class="mx100">
           <div ng-repeat="card in element.elements">
-            <div ng-repeat="element in card.elements">
+            <div ng-repeat="element in card.elements"> 
               <h2 ng-if="element.name==='label'">{{element.elements[0].elements[0].text}}</h2>
               
-              <img ng-if="card['_background-image'] && card['_background-image-align']=='top'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
+              <img ng-if="card.attributes['background-image'] && card.attributes['background-image-align']==='top'" ng-src="{{knowGod.manifest.lookup(card.attributes['background-image'])}}" class="w100">
 
               <p ng-if="element.name==='content:paragraph'" class="mx144">
-                <span ng-repeat="el in element.elements">
+                <span ng-repeat="el in element.elements" class="db">
                   <img ng-if="el.name==='content:image'" ng-src="{{knowGod.manifest.lookup(el.attributes.resource)}}" class="w100">
-                  <span ng-if="el.name==='content:text'" class="db">
+                  <span ng-if="el.name==='content:text'">
                     {{el.elements[0].text}}
+                  </span>{{el.name}}
+                  <span ng-if="el.name==='content:tabs'" class="mx100">
+                   {{el}}
                   </span>
                 </span>
               </p>
               
               <p class="mx144" ng-repeat="text in card.paragraph.text">{{text}}</p>
-              
-              <img ng-if="card['_background-image'] && card['_background-image-align']=='bottom'" ng-src="{{knowGod.manifest.lookup(card['_background-image'])}}" class="w100">
+
             </div>
+            <img ng-if="card.attributes['background-image'] && card.attributes['background-image-align']==='bottom'" ng-src="{{knowGod.manifest.lookup(card.attributes['background-image'])}}" class="w100">
+            
           </div>
         </div>
 
         <!-- call to action -->     
-        <div ng-if="element.name==='call-to-action'">
+        <div ng-if="element.name==='call-to-action'" class="mx100">
           <h3 ng-repeat="cta in element.elements[0].elements">{{cta.text}}</h3>
         </div>
 
       </div>
 
           <!-- next/prev -->
-      <div class="my25">
+      <div class="my25 mx100">
         <a href="" ng-click="knowGod.manifest.prevPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-left kg-bg-gray pill-left"></a>
         <a href="" ng-click="knowGod.manifest.nextPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-right kg-bg-blue pill-right"></a>
       </div>
