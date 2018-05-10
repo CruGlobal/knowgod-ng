@@ -4,8 +4,15 @@
     <base href="/">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="knowGodResource/xslt.js"></script>
   </head>
   <body>
+    <script type="text/javascript">
+    window.onload = function() {
+    new Transformation().setXml("http://localhost:9000/knowGodResource/document.xml")
+        .setXslt("http://localhost:9000/knowGodResource/page.xsl").transform("page-content2");
+    }
+    </script>
     <div ng-controller="KnowGodController as knowGod">
       <!-- Header -->
       <div>
@@ -35,85 +42,14 @@
           </span>
         </div>
       </div>
+
    <!-- content goes in here -->
-      <div ng-repeat="element in knowGod.page.content.elements[0].elements">
-        <!-- Blue Header -->
-        <div ng-if="element.name==='header'" class="py25 kg-bg-blue kg-white">
-          <div ng-repeat="el in element.elements">
-            <h1 ng-if="el.name==='number'" class="fl ml25 kg-white">{{el.elements[0].elements[0].text}}</h1>
-            <h2 ng-if="el.name==='title'" class="mx100 kg-white">{{el.elements[0].elements[0].text}}</h2>
-          </div>
-        </div>
-        
-        <!-- Hero text -->
-        <div ng-if="element.name==='hero'" class="mx100">
-          <div ng-repeat="element in element.elements"> 
-            <h1 ng-if="element.name==='heading'" class="kg-blue">{{element.elements[0].elements[0].text}}</h1>
-            <p ng-if="element.name==='content:paragraph'">
-              <span ng-repeat="el in element.elements">
-                <img ng-if="el.name==='content:image'" ng-src="{{knowGod.manifest.lookup(el.attributes.resource)}}" class="w100">
-                <span ng-if="el.name==='content:text'" class="db tc">
-                  {{el.elements[0].text}}
-                </span>
-                <a ng-if="el.name==='content:button'" href="http://www.{{el.attributes.url}}" class="button w100 kg-bg-blue kg-white">{{el.attributes.url}}</a>
-              </span>
-            </p>
-          </div>
-        </div>
-
-        <!--div ng-if="knowGod.page.content.elements[0].attributes['background-image'] && !background-image-display" class="frame-squar">
-          <img ng-src="{{knowGod.manifest.lookup(knowGod.page.content.elements[0].attributes['background-image'])}}" class="w100" >Background image for page
-        </div-->
-
-        <!-- Cards -->
-        <div ng-if="element.name==='cards'" class="mx100">
-          <div ng-repeat="card in element.elements">
-            <div ng-repeat="element in card.elements"> 
-              <h2 ng-if="element.name==='label'">{{element.elements[0].elements[0].text}}</h2>
-              
-              <img ng-if="card.attributes['background-image'] && card.attributes['background-image-align']==='top'" ng-src="{{knowGod.manifest.lookup(card.attributes['background-image'])}}" class="w100">
-
-              <p ng-if="element.name==='content:paragraph'" class="mx144">
-                <span ng-repeat="el in element.elements" class="db">
-                  <img ng-if="el.name==='content:image'" ng-src="{{knowGod.manifest.lookup(el.attributes.resource)}}" class="w100">
-                  <span ng-if="el.name==='content:text'">
-                    {{el.elements[0].text}}
-                  </span>
-                  <span ng-if="el.name==='content:tabs'">
-                    <span ng-repeat="tab in el.elements">
-                      <span ng-repeat="tab_el in tab.elements">
-
-                        <span ng-if="tab_el.name==='content:label'">
-                          {{tab_el.elements[0].elements[0].text}}
-                        </span>
-                        <span ng-if="tab_el.name==='content:paragraph'">{{tab_el}}
-                          <span ng-repeat="el in tab_el.elements">
-                            <img ng-if="el.name==='content:image'" ng-src="{{knowGod.manifest.lookup(el.attributes.resource)}}" class="w100">
-                            <span ng-if="el.name==='content:text'" class="db tc">
-                              {{el.elements[0].text}}
-                            </span>
-                            <a ng-if="el.name==='content:button'" href="http://www.{{el.attributes.url}}" class="button w100 kg-bg-blue kg-white">{{el.attributes.url}}</a>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </p>
-              
-              <p class="mx144" ng-repeat="text in card.paragraph.text">{{text}}</p>
-
-            </div>
-            <img ng-if="card.attributes['background-image'] && card.attributes['background-image-align']==='bottom'" ng-src="{{knowGod.manifest.lookup(card.attributes['background-image'])}}" class="w100">
-            
-          </div>
-        </div>
-
-        <!-- call to action -->     
-        <div ng-if="element.name==='call-to-action'" class="mx100">
-          <h3 ng-repeat="cta in element.elements[0].elements">{{cta.text}}</h3>
-        </div>
-
+      <div>
+        {{knowGod.page.content}}
+      </div>
+      <div id="page-content">
+      </div>
+            <div id="page-content2">
       </div>
 
           <!-- next/prev -->
@@ -121,8 +57,6 @@
         <a href="" ng-click="knowGod.manifest.prevPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-left kg-bg-gray pill-left"></a>
         <a href="" ng-click="knowGod.manifest.nextPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-right kg-bg-blue pill-right"></a>
       </div>
-
-      <p>{{knowGod.page.content.elements}}</p>
 
       <!-- Footer -->
       <div class="px100">
