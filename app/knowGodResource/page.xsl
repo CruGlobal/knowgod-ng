@@ -13,18 +13,13 @@
 
   <xsl:template match="page/cards/card">
     <div class="mx100">
-      <h2><xsl:value-of select="label" /></h2>
 
       <xsl:apply-templates />
 
     </div>
   </xsl:template>
 
-  <xsl:template match="page/call-to-action">
-    <div class="py25 kg-bg-blue kg-white">
-      <h3 class="fl ml25 kg-white"><xsl:value-of select="contenttext" /></h3>
-    </div>
-  </xsl:template>
+
 
   <xsl:template match="contentparagraph">
     <p>
@@ -32,7 +27,13 @@
     </p>
   </xsl:template>
 
-  <xsl:template match="contentparagraph/contenttext">
+  <xsl:template match="contenttabs/contenttab">
+    <div>
+      <xsl:apply-templates />
+    </div>
+  </xsl:template>
+
+  <xsl:template match="contentparagraph//contenttext">
     <xsl:element name="span">
       <xsl:attribute name="class">db</xsl:attribute>
       <xsl:apply-templates select="@align-text"/>
@@ -40,7 +41,15 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="contentparagraph/contentimage">
+  <xsl:template match="label/contenttext">
+    <h2><xsl:value-of select="." /></h2>
+  </xsl:template>
+
+  <xsl:template match="contentlabel/contenttext">
+    <h2><xsl:value-of select="." /></h2>
+  </xsl:template>
+
+  <xsl:template match="contentparagraph//contentimage">
     <xsl:element name="img">
       <xsl:attribute name="resource">
         <xsl:value-of select="@resource"/>
@@ -48,10 +57,18 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="contentparagraph/contenttext/@text-align">
+  <xsl:template match="@text-align">
     <xsl:attribute name="text-align">
       <xsl:value-of select="@text-align"/>
     </xsl:attribute>
+  </xsl:template>
+
+
+
+  <xsl:template match="page/call-to-action">
+    <div class="mx100">
+      <h3><xsl:value-of select="contenttext" /></h3>
+    </div>
   </xsl:template>
 
 </xsl:stylesheet>
