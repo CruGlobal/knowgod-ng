@@ -7,12 +7,6 @@
     <script src="knowGodResource/xslt.js"></script>
   </head>
   <body>
-    <script type="text/javascript">
-    window.onload = function() {
-    new Transformation().setXml("http://localhost:9000/knowGodResource/document.xml")
-        .setXslt("http://localhost:9000/knowGodResource/page.xsl").transform("page-content2");
-    }
-    </script>
     <div ng-controller="KnowGodController as knowGod">
       <!-- Header -->
       <div>
@@ -34,7 +28,7 @@
           </span>
         </div>
 
-     <!-- languages -->
+    <!-- languages -->
         <div ng-hide="knowGod.language.langHidden" class="px100 py25 kg-bg-gray-light">
           <span ng-repeat="lang in knowGod.language.langs" class="w33 dib pill kg-bg-white-hover" ng-class="{'kg-bg-white' : (lang == knowGod.language.getLang())}">
             <a class="w100 dib pill-inside" href="{{lang.attributes.code}}/kgp/3" ng-click="knowGod.language.setLang(lang); knowGod.language.hideLang() ">
@@ -46,10 +40,8 @@
    <!-- content goes in here -->
       <div id="page-content">
       </div>
-            <div id="page-content2">
-      </div>
 
-          <!-- next/prev -->
+   <!-- next/prev -->
       <div class="my25 mx100">
         <a href="" ng-click="knowGod.manifest.prevPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-left kg-bg-gray pill-left"></a>
         <a href="" ng-click="knowGod.manifest.nextPage()" class="py25 kg-white tc w50 fas fa-2x fa-arrow-right kg-bg-blue pill-right"></a>

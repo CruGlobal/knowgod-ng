@@ -206,8 +206,8 @@ function Transformation() {
                         processor.importStylesheet(xs.responseXML);
                         resultDoc = processor.transformToFragment(xm.responseXML, document);
                         callback(t);
-                        document.getElementById(target).innerHTML = '';
-                        document.getElementById(target).appendChild(resultDoc);
+                        resultDoc = (new XMLSerializer()).serializeToString(resultDoc);                        
+                        document.getElementById(target).innerHTML = resultDoc;
                     }
                     
                     transformed = true;
