@@ -24,7 +24,7 @@ angular.module('knowGod')
     translations(1);
 
   })
-  .directive('imageResource', ['$compile', 'manifest', function( $compile, manifest ) {
+  .directive('imageResource', ['manifest', function( manifest ) {
     return function(scope, element, attrs) {
       scope.$watch(
         function(scope) {
@@ -36,6 +36,18 @@ angular.module('knowGod')
         });
     };
   }])
+  .directive('textAlign', function() {
+    return function(scope, element, attrs) {
+      scope.$watch(
+        function(scope) {
+          return scope.$eval(attrs.textAlign);
+        },
+        function(value) {
+          element.addClass(attrs.textAlign);
+          element.removeAttr('text-align');
+        });
+    };
+  })
   .directive('compile', ['$compile', function( $compile ) {
     return function(scope, element, attrs) {
       scope.$watch(

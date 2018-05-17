@@ -48,6 +48,9 @@ a {
 .absolute {
   position: absolute;
 }
+.center {
+  text-align: center;
+}
 .l {
   left: 0;
 }

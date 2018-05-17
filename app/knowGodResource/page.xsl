@@ -80,7 +80,7 @@
 
   <xsl:template match="@text-align">
     <xsl:attribute name="text-align">
-      <xsl:value-of select="@text-align"/>
+      <xsl:value-of select="."/>
     </xsl:attribute>
   </xsl:template>
 
