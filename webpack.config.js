@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-//const xslt = require('angular-xslt');
 //const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const concat = require('lodash/concat');
 const HtmlWebpackPlugin = require('html-webpack-plugin');

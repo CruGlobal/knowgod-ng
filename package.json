@@ -6,7 +6,7 @@
     "xml-js": "^1.6.2",
     "angular": "^1.6.9",
     "angular-route": "^1.6.9",
-    "angular-xslt": "^0.2.1"
+    "angular-sanitize": "1.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

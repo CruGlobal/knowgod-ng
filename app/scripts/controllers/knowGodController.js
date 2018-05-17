@@ -2,7 +2,6 @@ angular.module('knowGod')
   .controller('KnowGodController', function($routeParams, $scope, $http, $window, page, manifest, languages) {
     var knowGod = this;
 
-
     languages.loadLanguages().then(function(data){
       knowGod.language = languages;
     })
@@ -24,4 +23,30 @@ angular.module('knowGod')
     };
     translations(1);
 
-  });
+  })
+  .directive('imageResource', ['$compile', 'manifest', function( $compile, manifest ) {
+    return function(scope, element, attrs) {
+      scope.$watch(
+        function(scope) {
+          return scope.$eval(attrs.imageResource);
+        },
+        function(value) {
+          element.attr('src', manifest.lookup(attrs.imageResource));
+          element.removeAttr('image-resource');
+        });
+    };
+  }])
+  .directive('compile', ['$compile', function( $compile ) {
+    return function(scope, element, attrs) {
+      scope.$watch(
+        function(scope) {
+          return scope.$eval(attrs.compile);
+
+        },
+        function(value) {
+          element.html(value);
+
+          $compile(element.contents())(scope);
+        });
+    };
+  }]);

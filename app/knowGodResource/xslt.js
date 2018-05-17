@@ -146,7 +146,7 @@ function Transformation() {
      * 
      * @param target the ID of an element
      */
-    this.transform = function(target) {
+    this.transform = function() {
         if (!browserSupportsXSLT()) {
            return;
         }
@@ -200,14 +200,15 @@ function Transformation() {
                         processor.transformDocument(xm.responseXML, xs.responseXML, resultDoc, null);
                         var out = new XMLSerializer().serializeToString(resultDoc);
                         callback(t);
-                        document.getElementById(target).innerHTML = out;
+                        return out;
                     }
                     else {
                         processor.importStylesheet(xs.responseXML);
                         resultDoc = processor.transformToFragment(xm.responseXML, document);
                         callback(t);
+                        //mega thanks to https://geeks.netindonesia.net/blogs/cipto/archive/2009/07/23/document-fragment-isolate-them-self-style-or-css-is-missing.aspx
                         resultDoc = (new XMLSerializer()).serializeToString(resultDoc);                        
-                        document.getElementById(target).innerHTML = resultDoc;
+                        return resultDoc;
                     }
                     
                     transformed = true;
@@ -226,7 +227,7 @@ function Transformation() {
 
             if (str.test(xslt)) {
                 xs.responseXML = new DOMParser().parseFromString(xslt, "text/xml");
-                change();
+                return change();
             }
             else {
                 xs = new XMLHttpRequest();

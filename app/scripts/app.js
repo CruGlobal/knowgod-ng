@@ -1,4 +1,4 @@
-angular.module('knowGod')
+angular.module('knowGod', ['ngSanitize', 'ngRoute'])
   .config(function ($locationProvider, $httpProvider, $qProvider, $routeProvider) {
     $locationProvider.html5Mode(true).hashPrefix('');
     $httpProvider.useApplyAsync(true);

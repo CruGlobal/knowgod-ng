@@ -19,12 +19,33 @@
     </div>
   </xsl:template>
 
+  <xsl:template match="t:hero">
+    <div class="mx100">
+      <xsl:apply-templates />
+    </div>
+  </xsl:template>
 
+  <xsl:template match="t:heading">
+      <h1 class="kg-blue"><xsl:value-of select="c:text" /></h1>
+  </xsl:template>
 
   <xsl:template match="c:paragraph">
     <p>
       <xsl:apply-templates/>
     </p>
+  </xsl:template>
+
+  <xsl:template match="c:button">
+    <a class="button w100 kg-bg-blue kg-white">
+      <xsl:if test="@type='url'">
+        <xsl:attribute name="href">http://www.<xsl:value-of select="./@url" /></xsl:attribute>
+      </xsl:if>
+      <xsl:if test="@type='event'">
+        <xsl:attribute name="href">eevent</xsl:attribute>
+      </xsl:if>
+
+      <xsl:apply-templates/>
+    </a>
   </xsl:template>
 
   <xsl:template match="c:tabs/c:tab">
@@ -34,19 +55,19 @@
   </xsl:template>
 
   <xsl:template match="c:paragraph//c:text">
-    <xsl:element name="span">
+    <span>
       <xsl:attribute name="class">db</xsl:attribute>
-      <xsl:apply-templates select="@align-text"/>
+      <xsl:apply-templates select="@text-align"/>
       <xsl:value-of select="." />
-    </xsl:element>
+    </span>
   </xsl:template>
 
-  <xsl:template match="t:label/c:text">
-    <h2><xsl:value-of select="." /></h2>
+  <xsl:template match="t:label">
+    <h2><xsl:value-of select="c:text" /></h2>
   </xsl:template>
 
-  <xsl:template match="c:label/c:text">
-    <h2><xsl:value-of select="." /></h2>
+  <xsl:template match="c:label">
+    <h2><xsl:value-of select="c:text" /></h2>
   </xsl:template>
 
   <xsl:template match="c:paragraph//c:image">
