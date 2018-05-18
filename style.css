@@ -1,6 +1,10 @@
 :root {
   --kg-blue: #3BA4DB; 
+  --kg-blue-hover: #8CCCEE;
+  --kg-blue-dark: #258BC0;
   --kg-gray: #BEBEBE;
+  --kg-gray-dark-hover: #7B7B7B;
+  --kg-gray-hover: #E1E1E1;
   --kg-gray-light: #E6E6E6;
   --kg-gray-dark: #5A5A5A;
   --kg-white: #FFFFFF;
@@ -199,7 +203,7 @@ input {
 
 .frame-square {
   width: 100%;
-  padding-top: 80%;
+  padding-top: 50%;
   overflow: hidden;
   position: relative;
 }
@@ -222,14 +226,26 @@ input {
 .kg-bg-blue {
   background-color: var(--kg-blue);  
 }
+.kg-bg-blue-hover:hover {
+  background-color: var(--kg-blue-hover);  
+}
+.kg-blue-dark-hover:hover {
+  color: var(--kg-blue-dark);
+}
 .kg-bg-gray {
   background-color: var(--kg-gray);
+}
+.kg-bg-gray-hover:hover {
+  background-color: var(--kg-gray-hover);
 }
 .kg-bg-gray-dark {
   background-color: var(--kg-gray-dark);
 }
 .kg-gray-light {
   color: var(--kg-gray-light);
+}
+.kg-gray-dark-hover:hover {
+  color: var(--kg-gray-dark-hover);
 }
 .kg-gray-dark {
   color: var(--kg-gray-dark);

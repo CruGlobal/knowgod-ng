@@ -1,7 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:t="https://mobile-content-api.cru.org/xmlns/tract" xmlns:c="https://mobile-content-api.cru.org/xmlns/content" exclude-result-prefixes="t c">
   <xsl:output method="xml" encoding="utf-8" />
   <xsl:template match="/">
-          <xsl:apply-templates />
+    <xsl:apply-templates />
   </xsl:template>
 
   <xsl:template match="t:page/t:header">
@@ -9,7 +9,14 @@
       <h1 class="fl ml25 kg-white"><xsl:value-of select="t:number/c:text" /></h1>
       <h2 class="mx100 kg-white"><xsl:value-of select="t:title/c:text" /></h2>
     </div>
+    <xsl:if test="../@background-image">
+    <div class="frame-square">
+      <xsl:apply-templates select="../@background-image"/>
+    </div>
+    </xsl:if>
   </xsl:template>
+
+
 
   <xsl:template match="t:page/t:cards/t:card">
     <div class="mx100">
@@ -100,7 +107,7 @@
 
 
   <xsl:template match="c:button">
-    <a class="button kg-bg-blue kg-white">
+    <a class="button kg-bg-blue kg-bg-blue-hover kg-white kg-blue-dark-hover">
       <xsl:if test="@type='url'">
         <xsl:attribute name="href">http://www.<xsl:value-of select="./@url" /></xsl:attribute>
       </xsl:if>
@@ -127,7 +134,7 @@
 
   <xsl:template match="c:paragraph//c:text">
     <span>
-      <xsl:attribute name="class">db</xsl:attribute>
+      <xsl:attribute name="class">db mx144</xsl:attribute>
       <xsl:apply-templates select="@text-align"/>
       <xsl:value-of select="." />
     </span>

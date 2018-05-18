@@ -23,6 +23,23 @@ angular.module('knowGod')
     };
     translations(1);
 
+
+
+    $scope.keys = [];
+    $scope.keys.push({ code: 13, action: function() { $scope.open( $scope.focusIndex ); }});
+    $scope.keys.push({ code: 37, action: function() { manifest.prevPage(); }});
+    $scope.keys.push({ code: 39, action: function() { manifest.nextPage(); }});
+    
+    $scope.$on('keydown', function( msg, obj ) {
+      var code = obj.code;
+      $scope.keys.forEach(function(o) {
+        if ( o.code !== code ) { return; }
+        o.action();
+        $scope.$apply();
+      });
+    });
+
+
   })
   .directive('imageResource', ['manifest', function( manifest ) {
     return function(scope, element, attrs) {
@@ -61,4 +78,11 @@ angular.module('knowGod')
           $compile(element.contents())(scope);
         });
     };
-  }]);
+  }])
+  .directive('keyTrap', function() {
+  return function( scope, elem ) {
+    elem.bind('keydown', function( event ) {
+      scope.$broadcast('keydown', { code: event.keyCode } );
+    });
+  };
+});
