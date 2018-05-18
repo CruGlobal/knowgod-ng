@@ -13,11 +13,29 @@
 
   <xsl:template match="t:page/t:cards/t:card">
     <div class="mx100">
+      <xsl:if test="@background-image-align='top'">
+        <xsl:apply-templates select="@background-image"/>
+      </xsl:if>
 
       <xsl:apply-templates />
 
+      <xsl:if test="@background-image-align='bottom'">
+        <xsl:apply-templates select="@background-image"/>
+      </xsl:if>
+
     </div>
   </xsl:template>
+
+  <xsl:template match="@background-image">
+    <xsl:element name="img">
+      <xsl:attribute name="image-resource">
+        '<xsl:value-of select="."/>' <!-- single quote to protect from ng-compile -->
+      </xsl:attribute>
+      <xsl:attribute name="class">w100</xsl:attribute>
+    </xsl:element>
+  </xsl:template>
+
+
 
   <xsl:template match="t:hero">
     <div class="mx100">
@@ -62,19 +80,16 @@
     </span>
   </xsl:template>
 
-  <xsl:template match="t:label">
-    <h2><xsl:value-of select="c:text" /></h2>
-  </xsl:template>
-
-  <xsl:template match="c:label">
+  <xsl:template match="t:label | c:label">
     <h2><xsl:value-of select="c:text" /></h2>
   </xsl:template>
 
   <xsl:template match="c:paragraph//c:image">
     <xsl:element name="img">
       <xsl:attribute name="image-resource">
-        <xsl:value-of select="@resource"/>
+        '<xsl:value-of select="@resource"/>' <!-- single quote to protect from ng-compile -->
       </xsl:attribute>
+      <xsl:attribute name="class">w100</xsl:attribute>
     </xsl:element>
   </xsl:template>
 
@@ -83,8 +98,6 @@
       <xsl:value-of select="."/>
     </xsl:attribute>
   </xsl:template>
-
-
 
   <xsl:template match="t:page/t:call-to-action">
     <div class="mx100">

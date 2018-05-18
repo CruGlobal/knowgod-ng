@@ -31,7 +31,7 @@ angular.module('knowGod')
           return scope.$eval(attrs.imageResource);
         },
         function(value) {
-          element.attr('src', manifest.lookup(attrs.imageResource));
+          element.attr('src', manifest.lookup(String(attrs.imageResource).replace(/'/g,'')));
           element.removeAttr('image-resource');
         });
     };
