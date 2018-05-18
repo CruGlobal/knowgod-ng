@@ -13,6 +13,10 @@
 
   <xsl:template match="t:page/t:cards/t:card">
     <div class="mx100">
+      <xsl:if test="@hidden">
+        <xsl:attribute name="hidden2"></xsl:attribute>
+      </xsl:if>
+
       <xsl:if test="@background-image-align='top'">
         <xsl:apply-templates select="@background-image"/>
       </xsl:if>
@@ -35,8 +39,6 @@
     </xsl:element>
   </xsl:template>
 
-
-
   <xsl:template match="t:hero">
     <div class="mx100">
       <xsl:apply-templates />
@@ -53,8 +55,52 @@
     </p>
   </xsl:template>
 
+
+<!-- FORMS -->
+  <xsl:template match="c:form">
+    <form>
+      <xsl:apply-templates/>
+    </form>
+  </xsl:template>
+
+  <xsl:template match="c:input">
+    <label>
+      <h3 class="tl"><xsl:value-of select="c:label"/></h3>
+      <input>
+        <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+        <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+        <xsl:if test="c:placeholder"><xsl:attribute name="value"><xsl:value-of select="c:placeholder/c:text"/></xsl:attribute></xsl:if>
+        <xsl:if test="@required"><xsl:attribute name="required"></xsl:attribute></xsl:if>
+      </input>
+    </label>
+  </xsl:template>
+
+
+
+<!-- MODALS -->
+  <xsl:template match="t:modals/t:modal">
+    <div>
+      <h2 class=""><xsl:value-of select="t:title/c:text" /></h2>
+      <xsl:apply-templates select="c:paragraph"/>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="c:input">
+    <label>
+      <h3 class="tl"><xsl:value-of select="c:label"/></h3>
+      <input>
+        <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+        <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+        <xsl:if test="c:placeholder"><xsl:attribute name="placeholder"><xsl:value-of select="c:placeholder/c:text"/></xsl:attribute></xsl:if>
+        <xsl:if test="@required"><xsl:attribute name="required"></xsl:attribute></xsl:if>
+      </input>
+    </label>
+  </xsl:template>
+
+
+
   <xsl:template match="c:button">
-    <a class="button w100 kg-bg-blue kg-white">
+    <a class="button kg-bg-blue kg-white">
       <xsl:if test="@type='url'">
         <xsl:attribute name="href">http://www.<xsl:value-of select="./@url" /></xsl:attribute>
       </xsl:if>
@@ -62,9 +108,16 @@
         <xsl:attribute name="href">eevent</xsl:attribute>
       </xsl:if>
 
+      <xsl:value-of select="c:text"/>
+    </a>
+  </xsl:template>
+
+  <xsl:template match="c:link">
+    <a class="kg-blue" href="">
       <xsl:apply-templates/>
     </a>
   </xsl:template>
+
 
   <xsl:template match="c:tabs/c:tab">
     <div>

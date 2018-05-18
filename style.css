@@ -32,6 +32,17 @@ a {
   text-decoration: none;
   color: var(--kg-gray-dark);
 }
+input {
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-size: 20px;
+  color: var(--kg-gray-dark);
+  padding: 10px;
+  width: 100%;
+  border: 1px solid var(--kg-blue);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
 /*Specific Area css*/
 .header {
   height: 60px;
@@ -74,11 +85,13 @@ a {
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
-  padding: 9px 15px 9px 15px;
+  padding: 9px 60px 9px 60px;
   font-size: 1rem;
   line-height: 1.5;
   text-transform: uppercase;
   white-space: nowrap;
+  border-radius: 20px;
+  text-align: center;
 }
 .button:hover {
   text-decoration: none;
@@ -173,6 +186,9 @@ a {
 }
 .tr {
   text-align: right;
+}
+.tl {
+  text-align: left;
 }
 .line {
   border-top: var(--kg-gray-light) 2px solid;

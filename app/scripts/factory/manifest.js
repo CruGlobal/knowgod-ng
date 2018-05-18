@@ -5,7 +5,7 @@ angular.module('knowGod')
     var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';
     var _finalUrl = '';
     var _manifest = '';
-    var _page_number = 9;  //this needs to be tied into the URL/location
+    var _page_number = 6;  //this needs to be tied into the URL/location
 
     var makeUrl = function () { 
       _finalUrl = baseUrl + _url;
