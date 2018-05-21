@@ -1,5 +1,5 @@
 angular.module('knowGod')
-  .controller('KnowGodController', function($routeParams, $scope, $http, $window, page, manifest, languages) {
+  .controller('KnowGodController', function($routeParams, $scope, $http, $window, page, manifest, languages, ModalService) {
     var knowGod = this;
 
     languages.loadLanguages().then(function(data){
@@ -23,10 +23,7 @@ angular.module('knowGod')
     };
     translations(1);
 
-
-
     $scope.keys = [];
-    $scope.keys.push({ code: 13, action: function() { $scope.open( $scope.focusIndex ); }});
     $scope.keys.push({ code: 37, action: function() { manifest.prevPage(); }});
     $scope.keys.push({ code: 39, action: function() { manifest.nextPage(); }});
     
@@ -39,6 +36,22 @@ angular.module('knowGod')
       });
     });
 
+    knowGod.openModal = openModal;
+    knowGod.closeModal = closeModal;
+
+/*    initController();
+
+    function initController() {
+        vm.bodyText = 'This text can be updated in modal 1';
+    }
+  */  
+    function openModal(id){
+        ModalService.Open(id);
+    }
+
+    function closeModal(id){
+        ModalService.Close(id);
+    }
 
   })
   .directive('imageResource', ['manifest', function( manifest ) {
@@ -80,9 +93,57 @@ angular.module('knowGod')
     };
   }])
   .directive('keyTrap', function() {
-  return function( scope, elem ) {
-    elem.bind('keydown', function( event ) {
-      scope.$broadcast('keydown', { code: event.keyCode } );
-    });
-  };
-});
+    return function( scope, elem ) {
+      elem.bind('keydown', function( event ) {
+        scope.$broadcast('keydown', { code: event.keyCode } );
+      });
+    };
+  })
+  .directive('modal', function Directive(ModalService) {
+    return {
+      link: function (scope, element, attrs) {
+        // ensure id attribute exists
+        if (!attrs.id) {
+            console.error('modal must have an id');
+            return;
+        }
+
+        // move element to bottom of page (just before </body>) so it can be displayed above everything else
+        angular.element(document.querySelector('body')).append(element);
+
+        // close modal on background click
+        element.on('click', function (e) {
+            var target = angular.element(e.target);
+            if (target[0] == document.querySelector('.modal')) {
+              scope.$evalAsync(Close);
+            }
+        });
+
+        // add self (this modal instance) to the modal service so it's accessible from controllers
+        var modal = {
+            id: attrs.id,
+            open: Open,
+            close: Close
+        };
+        ModalService.Add(modal);
+    
+        // remove self from modal service when directive is destroyed
+        scope.$on('$destroy', function() {
+            ModalService.Remove(attrs.id);
+            element.remove();
+        });                
+
+        // open modal
+        function Open() {
+          element.addClass('show');
+          angular.element(document.querySelector('body')).addClass('modal-open');
+        }
+
+        // close modal
+        function Close() {
+          element.removeClass('show');
+          angular.element(document.querySelector('body')).removeClass('modal-open');
+        }
+      }
+    };
+  });

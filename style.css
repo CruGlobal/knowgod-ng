@@ -3,10 +3,10 @@
   --kg-blue-hover: #8CCCEE;
   --kg-blue-dark: #258BC0;
   --kg-gray: #BEBEBE;
-  --kg-gray-dark-hover: #7B7B7B;
   --kg-gray-hover: #E1E1E1;
   --kg-gray-light: #E6E6E6;
   --kg-gray-dark: #5A5A5A;
+  --kg-gray-dark-hover: #7B7B7B;
   --kg-white: #FFFFFF;
 }
 
@@ -45,6 +45,7 @@ input {
   border: 1px solid var(--kg-blue);
   box-sizing: border-box;
   border-radius: 8px;
+  outline:none;
 }
 
 /*Specific Area css*/
@@ -159,12 +160,15 @@ input {
 }
 .w33 {
   width: 33%;
+  box-sizing: border-box;
 }
 .w50 {
   width: 49%;
+  box-sizing: border-box;
 }
 .w100 {
   width: 100%;
+  box-sizing: border-box;
 }
 .fl {
   float: left;
@@ -262,3 +266,60 @@ input {
 .kg-bg-white-hover:hover {
   background-color: var(--kg-white);
 }
+
+
+/* MODAL STYLES
+-------------------------------*/
+modal {
+  /* modals are hidden by default */
+  display: none;
+}
+.show {
+  display: block;
+}
+ 
+.modal {
+  /* modal container fixed across whole screen */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* z-index must be higher than .modal-background */
+  z-index: 1000;
+   
+  /* enables scrolling for tall modals */
+  overflow: auto;
+}
+ 
+.modal .modal-body {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--kg-white);
+
+  /* margin exposes part of the modal background */
+  margin: 40px;
+}
+ 
+.modal-background {
+  /* modal background fixed across whole screen */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* semi-transparent black  */
+  background-color: #000;
+  opacity: 0.75;
+   
+  /* z-index must be below .modal and above everything else  */
+  z-index: 900;
+}
+ 
+body.modal-open {
+  /* body overflow is hidden to hide main scrollbar when modal window is open */
+  overflow: hidden;
+}
+
