@@ -26,6 +26,7 @@ angular.module('knowGod')
     $scope.keys = [];
     $scope.keys.push({ code: 37, action: function() { manifest.prevPage(); }});
     $scope.keys.push({ code: 39, action: function() { manifest.nextPage(); }});
+    $scope.keys.push({ code: 27, action: function() { knowGod.closeModal('1'); knowGod.language.langHidden=true;}});
     
     $scope.$on('keydown', function( msg, obj ) {
       var code = obj.code;
