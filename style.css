@@ -47,7 +47,6 @@ input {
   border-radius: 8px;
   outline:none;
 }
-
 /*Specific Area css*/
 .header {
   height: 60px;
@@ -79,8 +78,7 @@ input {
 .b-white {
   border: 2px solid var(--kg-white);
 }
-.button {
-/*  font-family: $font-family; */
+.button a, .button{
   box-sizing: border-box;
   display: inline-block;
   font-weight: 600;
@@ -95,8 +93,9 @@ input {
   line-height: 1.5;
   text-transform: uppercase;
   white-space: nowrap;
-  border-radius: 20px;
+  border-radius: 40px;
   text-align: center;
+  min-width: 40%;
 }
 .button:hover {
   text-decoration: none;
@@ -204,7 +203,9 @@ input {
 .f11 {
   font-size: 11px;
 }
-
+.f21 {
+  font-size: 21px !important;
+}
 .frame-square {
   width: 100%;
   padding-top: 50%;

@@ -43,8 +43,9 @@
 
    <!-- next/prev -->
       <div class="my25 mx100">
-        <a href="" ng-click="knowGod.manifest.prevPage()" class="py25 kg-white kg-gray-dark-hover tc w50 fas fa-2x fa-arrow-left kg-bg-gray kg-bg-gray-hover pill-left"></a>
-        <a href="" ng-click="knowGod.manifest.nextPage()" class="py25 kg-white kg-blue-dark-hover tc w50 fas fa-2x fa-arrow-right kg-bg-blue kg-bg-blue-hover pill-right"></a>
+        <a ng-if="knowGod.manifest.getPageNumber() != 1" href="" ng-click="knowGod.manifest.prevPage()" class="py25 kg-white kg-gray-dark-hover tc w50 fas fa-2x fa-arrow-left kg-bg-gray kg-bg-gray-hover pill-left"></a>
+        <a ng-if="knowGod.manifest.getPageNumber() != 1" href="" ng-click="knowGod.manifest.nextPage()" class="py25 kg-white kg-blue-dark-hover tc w50 fas fa-2x fa-arrow-right kg-bg-blue kg-bg-blue-hover pill-right"></a>
+        <span class="button db tc"><a ng-if="knowGod.manifest.getPageNumber() == 1" href="" ng-click="knowGod.manifest.nextPage()" class="w50 f21 kg-bg-blue kg-bg-blue-hover kg-white kg-blue-dark-hover">Begin</a></span>
       </div>
 
       <!-- Footer -->

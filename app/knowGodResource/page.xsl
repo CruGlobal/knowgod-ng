@@ -61,7 +61,7 @@
   </xsl:template>
 
   <xsl:template match="t:heading">
-      <h1 class="kg-blue"><xsl:value-of select="c:text" /></h1>
+      <h2 class="kg-blue tc"><xsl:value-of select="c:text" /></h2>
   </xsl:template>
 
   <xsl:template match="c:paragraph">
@@ -127,19 +127,21 @@
 
 
   <xsl:template match="c:button">
-    <a class="button kg-bg-blue kg-bg-blue-hover kg-white kg-blue-dark-hover">
-      <xsl:if test="@type='url'">
-        <xsl:attribute name="href">http://www.<xsl:value-of select="./@url" /></xsl:attribute>
-      </xsl:if>
-      <xsl:if test="@type='event'">
-        <xsl:attribute name="href">eevent</xsl:attribute>
-      </xsl:if>
-      <xsl:if test="@events">
-        <xsl:attribute name="events"><xsl:value-of select="@events"/></xsl:attribute>
-      </xsl:if>
+    <span class="db tc button">
+      <a class="kg-bg-blue kg-bg-blue-hover kg-white kg-blue-dark-hover">
+        <xsl:if test="@type='url'">
+          <xsl:attribute name="href">http://www.<xsl:value-of select="./@url" /></xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@type='event'">
+          <xsl:attribute name="href">eevent</xsl:attribute>
+        </xsl:if>
+        <xsl:if test="@events">
+          <xsl:attribute name="events"><xsl:value-of select="@events"/></xsl:attribute>
+        </xsl:if>
 
-      <xsl:value-of select="c:text"/>
-    </a>
+        <xsl:value-of select="c:text"/>
+      </a>
+    </span>
   </xsl:template>
 
   <xsl:template match="c:link">
