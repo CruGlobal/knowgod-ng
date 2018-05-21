@@ -6,7 +6,7 @@
   </xsl:template>
 
   <xsl:template match="t:page/t:header">
-      <button ng-click="knowGod.openModal('1')">Open Modal 2</button>
+      <!--button ng-click="knowGod.openModal('1')">Open Modal 2</button-->
     <div class="py25 kg-bg-blue kg-white">
       <h1 class="fl ml25 kg-white"><xsl:value-of select="t:number/c:text" /></h1>
       <h2 class="mx100 kg-white"><xsl:value-of select="t:title/c:text" /></h2>
@@ -95,14 +95,15 @@
 <!-- MODALS -->
   <xsl:template match="t:modals/t:modal">
     <modal id="1">
+      <xsl:if test="@dismiss-listeners">
+        <xsl:attribute name="dismiss-listeners"><xsl:value-of select="@dismiss-listeners"/></xsl:attribute>
+      </xsl:if>
+      <xsl:if test="@listeners">
+        <xsl:attribute name="listeners"><xsl:value-of select="@listeners"/></xsl:attribute>
+      </xsl:if>
+
       <div class="modal">
         <div class="modal-body">
-          <xsl:if test="@dismiss-listeners">
-            <xsl:attribute name="dismiss-listeners"><xsl:value-of select="@dismiss-listeners"/></xsl:attribute>
-          </xsl:if>
-          <xsl:if test="@listeners">
-            <xsl:attribute name="listeners"><xsl:value-of select="@listeners"/></xsl:attribute>
-          </xsl:if>
           <h2 class=""><xsl:value-of select="t:title/c:text" /></h2>
           <xsl:apply-templates select="c:paragraph"/>
         </div>

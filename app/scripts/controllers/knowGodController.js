@@ -36,6 +36,9 @@ angular.module('knowGod')
       });
     });
 
+
+
+
     knowGod.openModal = openModal;
     knowGod.closeModal = closeModal;
 
@@ -146,4 +149,41 @@ angular.module('knowGod')
         }
       }
     };
+  })
+  .directive('events', function() {
+    return function( scope, element, attrs ) {
+      element.on('click', function(e) {
+        var events = attrs.events.split(' ');
+        events.forEach(function(el){
+          var listeners = document.querySelectorAll('[listeners='+el.replace(':','\\:')+'], [dismiss-listeners='+el.replace(':','\\:')+']');
+          listeners.forEach(function(listen){
+            //depending on listener this will be different for each.  Need logical way to choose right action per listener type and state
+            angular.element(listen).removeAttr('hidden');
+            scope.knowGod.openModal('1');
+          });
+
+        });
+      });
+
+    };
+    /*for event in events
+        var listeners = list of listeners matched to event
+        for listener in listeners {
+          if modal, activate modal {
+
+          }
+          else if card, display card  {
+    
+          }
+        }
+
+      */
   });
+    
+
+      /*
+      knowGod.eventClose = function(event){
+          find listeners-dismiss,
+      Hide the listener wether modal or card...
+    }
+*/
