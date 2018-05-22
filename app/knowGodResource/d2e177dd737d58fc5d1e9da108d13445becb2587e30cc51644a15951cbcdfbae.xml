@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="https://mobile-content-api.cru.org/xmlns/tract" xmlns:content="https://mobile-content-api.cru.org/xmlns/content" background-color="rgba(86,179,80,1)" card-text-color="rgba(90,90,90,1)">
+
+        <header>
+          
+            <title>
+            <content:text i18n-id="1a518095-753d-4e6f-b67e-36b1f6aeb44e" text-color="rgba(255,255,255,1)">شروع: خدا دنیای خوبی را آفرید و به بشریت شایستگی و جایگاه بزرگی داد.</content:text>                
+            </title>
+        </header>
+    <hero>
+        <content:paragraph>
+            <content:image resource="honor-point-1.png"/>
+        </content:paragraph>
+    </hero>    
+    
+    <cards>
+        <card>
+            <label>
+                <content:text i18n-id="4f8cba9f-0f74-4885-9c24-d77caea3aa2c" text-color="rgba(90,90,90,1)">دنیای خوب</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="dc146942-5729-4763-be67-bf26c6f11f2c">دنیا محبت و عظمت خدا را نشان می داد.</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="89abaaef-5ade-47fc-85f4-82688347f009">"در ابتدا، خدا آسمانها و زمین را آفرید...پس خدا انسان را شبیه خود آفرید...خدا از دیدن تمام کارهایی که انجام شده بود، بسیار خشنود گشت."</content:text>
+                <content:text i18n-id="cb5417fd-b78f-4c0e-aff6-15fee53ff46d">پیدایش 1: 1، 27، 31</content:text>
+            </content:paragraph>
+        </card>
+        <card>
+            <label>
+                <content:text i18n-id="5697b056-407e-4fd3-9ce7-af17d5bc4bb8" text-color="rgba(90,90,90,1)">احترام و هماهنگی</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="8e0a8fbd-adeb-4c25-a345-06fc54ddb10a">تحت نظارت خدا، مردم به حق به خدا به عنوان پدرشان احترام می گذاشتند و در رابطه ای درست و کامل زندگی می کردند.</content:text>
+            </content:paragraph>
+             <content:paragraph>
+                <content:text i18n-id="276bbe48-adcb-4374-9a3c-15baaa33e40b">"ای خداوند، خداوند ما، چه پرشکوه است نام تو در سراسر جهان! و جلال تو برتر است از آسمانها... [انسان] را اندکی پایین تر از خود آفریدی و تاج جلال و افتخار را بر سر او نهادی." </content:text>
+                <content:text i18n-id="aaecc9f3-7633-43ca-97d3-69ace27aff15">مزامیر 8: 1، 5</content:text>
+            </content:paragraph>
+        </card>
+    </cards>
+    <call-to-action control-color="rgba(255,255,255,1)">
+        <content:text i18n-id="a9bec1a7-6cdf-4ed2-9b8b-ce3e21dc93e0">اگر خدا جهان خوبی را آفرید، پس چرا اینقدر شکسته شده است؟</content:text>
+    </call-to-action>
+</page>

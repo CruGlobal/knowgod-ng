@@ -9,6 +9,9 @@
   --kg-gray-dark-hover: #7B7B7B;
   --kg-white: #FFFFFF;
 }
+html {
+  overflow-y: scroll;
+}
 
 body {
   margin: 0;

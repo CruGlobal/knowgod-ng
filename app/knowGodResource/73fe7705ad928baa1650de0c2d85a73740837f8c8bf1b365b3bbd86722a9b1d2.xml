@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="https://mobile-content-api.cru.org/xmlns/tract" xmlns:content="https://mobile-content-api.cru.org/xmlns/content" background-color="rgba(63,135,199,1)" card-text-color="rgba(90,90,90,1)">
+    <header>
+      
+        <title>
+            <content:text i18n-id="f9d67683-bb1d-4d4f-bd0e-d93ac7490e48">پاسخ ما: از به دنبال کسب عزت و احترام برای خود دست برداریم و در عوض به خدا اعتماد کنیم.</content:text>
+        </title>
+    </header>
+    <hero>
+        <content:paragraph>
+            <content:image resource="honor-point-4.png"/>
+        </content:paragraph>
+    </hero>
+    <cards>
+        <card>
+            <label>
+                <content:text i18n-id="0c611151-8952-4ef0-89f3-7c98fd3bbde8" text-color="rgba(90,90,90,1)">اعتماد کامل</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="a89394d0-29ba-49df-83f5-fee08cb84362">باید با وفاداری و اعتماد کامل، عیسی را به آغوش بگیریم.</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="3f33a809-64cb-4e17-874d-c2f64a0f70e2">"زیرا اگر با لبان خود اعتراف کنی که عیسی، خداوند است و در قلب خود ایمان آوری که خدا او را پس از مرگ زنده ساخت، نجات خواهی یافت... هرکه به او ایمان آورد هرگز خجل نخواهد شد." </content:text>
+                <content:text i18n-id="053396f3-a8b0-48a9-935f-b0e974c98874">رومیان 10: 9، 11</content:text>
+            </content:paragraph>
+        </card>
+        <card>
+            <label>
+                <content:text i18n-id="a62d6a83-31ff-4119-93c2-311bd9a21b68" text-color="rgba(90,90,90,1)">عزت و احترام خدا را دریافت کن</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="6c233ca2-5903-479e-b888-ddeb0981ead2">بعنوان فرزندان محبوب او، باید اجازه دهیم خدا منبع عزت و افتخار ما باشد.</content:text>
+            </content:paragraph>
+             <content:paragraph>
+                <content:text i18n-id="38e166f4-32c0-463d-a1ba-f98f628baec6">"به همه کسانیکه او را قبول کردند و به او ایمان آوردند، این امتیاز را داد که فرزندان خدا شوند." </content:text>
+                <content:text i18n-id="58ee4471-c5b8-4ca9-b87e-37ef79a335f0">یوحنا 1: 12</content:text>
+            </content:paragraph>
+        </card>
+        <card>
+            <label>
+                <content:text i18n-id="e1b506db-2f31-4f89-91c1-23c492d247eb" text-color="rgba(90,90,90,1)">انتخاب</content:text>
+            </label>
+            <content:paragraph>
+                <content:image resource="honor-choice.png"/>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="176bc9c1-7ef6-4ae4-87e9-ecc6fbbba1e3">سمت چپ- در خجالت خود و خارج از خانواده خدا باقی بمان.</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="76b85aff-9350-4228-8ba1-332d49710ade">سمت راست- به عیسی اعتماد کن که بار شرم تو را حمل کند و تبدیل شو به یکی از اعضای مفتخر خانواده خدا.</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="3ba0829c-9f63-43a4-a105-b3503dc73708">کدام سمت زندگی شما را نشان می دهد؟ می خواهید کدام سمت نمایانگر زندگی شما باشد؟ چرا؟</content:text>
+            </content:paragraph>
+            
+        </card>
+         <card>
+            <label>
+                <content:text i18n-id="9f580169-0a7d-42aa-a719-1c54f4de95b2" text-color="rgba(90,90,90,1)">چه می خواهید؟</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="e7879994-6cb6-4a1c-a16d-ce6f59034c53">اگر می خواهید خدا شرم شما را بردارد و به شما عزت و احترام بدهد می توانید این خواسته را با این دعا بازگو کنید:</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="4b1dc56e-f4c0-43d4-a392-fdc25d19689a">پدر آسمانی، به تو احتیاج دارم. اعتراف می کنم که به دنبال کسب افتخار برای خود بودم و آن هم بدون تو. در نتیجه این کار تو را شرمنده ساخته و قلب من ناپاک شده است. سپاسگزارم عیسی که با تمایل خودت شریک شرم من شدی، آنرا بر خود قبول کردی، و از من دعوت نمودی که شریک عزت و جلال تو باشم. من برای این افتخار، و برای اینکه عضو خانواده الهی شوم تنها به عیسی اعتماد می کنم. می خواهم با تمام وجودم از تو پیروی کنم. از من آدمی را بساز که می خواهی. آمین.</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="8f2bfc4d-1ee1-4331-945f-ff84fb500c54">آیا این دعا اشتیاق قلب شما را بازگو می کند؟ اگر اینطور است می توانید همین الان این دعا را بکنید.</content:text>
+            </content:paragraph>
+            
+        </card>
+    </cards>
+    <call-to-action control-color="rgba(255,255,255,1)">
+          
+        <content:text/></call-to-action>
+   
+</page>

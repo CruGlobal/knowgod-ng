@@ -2,7 +2,8 @@ angular.module('knowGod')
   .factory('manifest', function ($routeParams, $http, $q, page) { //should be called by url?
     var service = {};
     var baseUrl = 'http://localhost:9000/knowGodResource/';
-    var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';
+    //var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';
+    var _url = '2ecce0057b5daac5b0325d75db17f80a61886bc47692afa587159365647e25d7.xml';
     var _finalUrl = '';
     var _manifest = '';
     var _page_number = 1;  //this needs to be tied into the URL/location

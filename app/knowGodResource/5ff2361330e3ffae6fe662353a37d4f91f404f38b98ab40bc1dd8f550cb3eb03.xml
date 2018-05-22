@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="https://mobile-content-api.cru.org/xmlns/tract" xmlns:content="https://mobile-content-api.cru.org/xmlns/content" background-color="rgba(111,116,127,1)" card-text-color="rgba(90,90,90,1)">
+    <header>
+       
+        <title>
+            <content:text i18n-id="38dab6bb-191e-42ca-8ee8-f1c43f4d95f1">مشکل: ما در مقابل آفریننده خود طغیان کردیم، بجای اینکه خدا را جلال دهیم، آن جلال و عزت را برای خود طلبیده و بدین وسیله به او بی احترامی کردیم.</content:text>
+        </title>
+    </header>
+    <hero>
+        <content:paragraph>
+            <content:image resource="honor-point-2.png"/>
+        </content:paragraph>
+    </hero>
+    <cards>
+        <card>
+            <label>
+                <content:text i18n-id="f6e0a6a6-51e0-4692-8b14-3e58d25ce361" text-color="rgba(90,90,90,1)">فساد و مرگ</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="b8a9bd25-6ebf-4c1f-9cd0-c3b225e74337">با قطع رابطه کردن از منبع اصلی عزت و احترام، و حیات، باعث شدیم دنیا فاسد شود و مرگ که درجه نهایی شرم است را به آن وارد کردیم.</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="62d4e7c5-72a7-453b-bbae-f5b10a4a919e">"اگر چه آنها خدا را شناختند ولی آن طوری که شایسته اوست از او تکریم و تشکر نکردند... 
+همه گناه کرده اند و از جلال خدا محرومند... 
+زیرا مزدی که گناه می دهد موت است." </content:text>
+                <content:text i18n-id="a4480755-f14b-4519-bb4f-d4b95c6e14b2">رومیان 1: 21، 3: 23، 6: 23</content:text>
+            </content:paragraph>
+        </card>
+        <card>
+            <label>
+                <content:text i18n-id="033918b4-ce24-4fe6-8231-56c10d15a3a4" text-color="rgba(90,90,90,1)">شرم</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="972d7f39-2d1d-4ae4-b327-e7bf385be2c8">ما به خاطر اینکه به خدا بی احترامی کردیم و رابطه ما با او شکسته شده است احساس شرم می کنیم.</content:text>
+            </content:paragraph>
+             <content:paragraph>
+                <content:text i18n-id="53e14b11-0812-4f66-a49c-2a22b89a8b88">"به خاطر گناهان شماست که او حرف شما را نمی شنود. این گناهان شماست که بین شما و خدا- حتی در وقتی که می خواهید او را پرستش کنید- جدایی ایجاد کرده است." </content:text>
+                <content:text i18n-id="4d280240-52f0-443a-b8cb-fa45f0b33805">اشعیا 59: 2</content:text>
+            </content:paragraph>
+        </card>
+    </cards>
+    <call-to-action control-color="rgba(255,255,255,1)">
+        <content:text i18n-id="a8f66572-32fc-4747-b339-36b6ee66bca8">آیا این مساله راه حلی هم دارد؟</content:text>
+    </call-to-action>
+</page>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<manifest xmlns="https://mobile-content-api.cru.org/xmlns/manifest" xmlns:content="https://mobile-content-api.cru.org/xmlns/content" text-color="rgba(255,255,255,1)" primary-color="rgba(0,0,0,0)" navbar-color="rgba(0,0,0,0.12)" navbar-control-color="rgba(255,255,255,1)">
+<title>
+<content:text i18n-id="name">&#x627;&#x641;&#x62A;&#x62E;&#x627;&#x631; &#x62A;&#x631;&#x645;&#x6CC;&#x645; &#x634;&#x62F;&#x647;</content:text>
+</title>
+  <!--
+    Pages - REQUIRED
+      ordered list of app pages
+  -->
+  <pages>
+
+  </pages>
+
+  <!--
+    Resources - REQUIRED
+      list of all resources used within this tract
+  -->
+  <resources>
+
+  </resources>
+<pages><page filename="01-HonorHome.xml" src="791cf50fc1dcab258fd76e2025cd1c6cae8737d01a4c73ee3ffa25619110a4b9.xml"/><page filename="02_Beginning.xml" src="d2e177dd737d58fc5d1e9da108d13445becb2587e30cc51644a15951cbcdfbae.xml"/><page filename="03_Problem.xml" src="5ff2361330e3ffae6fe662353a37d4f91f404f38b98ab40bc1dd8f550cb3eb03.xml"/><page filename="04_Solution.xml" src="b2520b51716b350818a3f5e016f59b7ed02dfbd1191f6b0e24ca856f34925baf.xml"/><page filename="05_Response.xml" src="73fe7705ad928baa1650de0c2d85a73740837f8c8bf1b365b3bbd86722a9b1d2.xml"/><page filename="06_Result.xml" src="fa4b14892831f53f23a4013c8f4e534751e8760b3f134edb92f97887fe5a56e2.xml"/><page filename="07_Review.xml" src="0d8fd4285404efbec01d4efc99d006cb4d17c121d0e749abbd7b6e9b017d7704.xml"/></pages><resources><resource filename="honor-point-1.png" src="8b4ff4084e129094deb11e3e44e9b19c7bdc9d2f369519e81f8095c79da15ba0"/><resource filename="honor-point-2.png" src="3521e198317e60549dc8d7dc2882e0ca9e7ed47836fecfbb6b37e2519b81f2ee"/><resource filename="honor-point-3.png" src="98cbd3d8bb1efe2ed3308c0cfdd3abfcd934ee3139a7642ea25e3721aaf16518"/><resource filename="honor-point-4.png" src="343682339e6a436f79f2d35b1639749ea41eca569ec8338f4db656ed9b9eec48"/><resource filename="honor-point-5.png" src="8aa2bc4b3dc0d2ccabf682689bb384893c52d79cd37cdb9cdee66f233b74382c"/><resource filename="honor-choice.png" src="6033ad54246ec93d7ee4e808c10dff6561a33c9fcbb66f74f411f363087942b4"/><resource filename="home-honor-1.png" src="a978a47dd5393205cf65620f0ae05ea71a02dc0f76f6ffb55c06af09bab01d30"/><resource filename="home-shame-1.png" src="c38371a349ec80c66caaff2908439f0e933120e53f9ca8be4160da092931d249"/></resources></manifest>

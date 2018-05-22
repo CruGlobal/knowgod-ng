@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="https://mobile-content-api.cru.org/xmlns/tract" xmlns:content="https://mobile-content-api.cru.org/xmlns/content" background-color="rgba(86,179,80,1)">
+ 
+ 
+	<hero>
+        <content:paragraph>
+            <content:text i18n-id="026d7fc2-3746-4ae9-983e-4e86c5c5c265" text-align="center">مطالب بیشتر در مورد پیروی از عیسی</content:text>
+        </content:paragraph>
+        <content:paragraph>
+            <content:button type="url" url="https://www.everypersianstudent.com">
+                <content:text i18n-id="87a6f783-397f-49cf-a143-fca1898a9595">everypersianstudent.com</content:text>
+            </content:button>
+        </content:paragraph>
+ 
+     
+ 
+        
+        <content:paragraph>
+            <content:text i18n-id="c238afb7-fa1d-4975-814f-95d9c829d31a" text-align="center">در مورد عیسی به یک فیلم نگاه کنید.</content:text>
+        </content:paragraph>
+        <content:paragraph>
+            <content:button type="url" url="https://jesusfilm.org/watch/magdalena.html/farsi-western.html">
+                <content:text i18n-id="9e3833f7-aca4-448a-8355-19de0574da76">jesusfilm.org/watch/magdalena.html/farsi-western.html</content:text>
+            </content:button>
+        </content:paragraph>
+</hero>
+</page>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="https://mobile-content-api.cru.org/xmlns/tract" xmlns:content="https://mobile-content-api.cru.org/xmlns/content" background-color="rgba(77,77,160,1)" card-text-color="rgba(90,90,90,1)">
+    <header>
+       
+        <title>
+            <content:text i18n-id="4d424ce1-4112-428e-a275-d397cea59daa">نتیجه: ما شریک عزت و احترام مسیح هستیم و در خانواده خدا تا ابد از حیات جدید برخورداریم.</content:text>
+        </title>
+    </header>
+    <hero>
+        <content:paragraph>
+            <content:image resource="honor-point-5.png"/>
+        </content:paragraph>
+    </hero>
+    <cards>
+        <card>
+            <label>
+                <content:text i18n-id="cb85125e-ffd7-45b1-ac53-997eb53f7c44" text-color="rgba(90,90,90,1)">ترمیم و بازسازی شده</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="6e33cc6f-4a7e-45e0-b3be-fd1d8193380a">خدا عزت و احترام واقعی را ترمیم می کند و ما را به عنوان فرزندانش می پذیرد.</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="12483a4d-f211-430d-a064-a10171256ba3">"به سبب محبت خود و بر حسب صلاحدید اراده خویش، برای ما مقدر فرمود که به وسیله عیسی مسیح فرزندان او شویم." </content:text>
+                <content:text i18n-id="fa8c4bd1-fd89-4217-be1e-d29d9864981a">افسسیان 1: 5</content:text>
+            </content:paragraph>
+        </card>
+        <card>
+            <label>
+                <content:text i18n-id="f20b7e68-584a-498d-81f2-1107141f632b" text-color="rgba(90,90,90,1)">مشمول</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="64da6d4a-ff46-4727-b49e-ee91caad5bbf">خانواده خدا اجتماع زیبایی را تشکیل می دهد که در آن همه متعهدند جهان را دوست داشته و به خدا احترام بگذارند.</content:text>
+            </content:paragraph>
+             <content:paragraph>
+                <content:text i18n-id="b0a8df76-ba77-42ba-9be0-cc6bbdfe11a9">"به جای غم، شادی و خوشی و به جای غصه، سرود تمجید می دهم. آنها مانند درختانی هستند که خداوند خودش کاشته است. آنها هر آنچه را راست  و درست است به جا می آورند، و خداوند به خاطر آنچه کرده است، ستایش می شود."</content:text>
+                <content:text i18n-id="f894003a-33df-4cfb-adc9-1d47597af756">اشعیا 61: 3</content:text>
+            </content:paragraph>
+        </card>
+        <card>
+            <label>
+                <content:text i18n-id="9dfdd342-04cc-4c48-a4c5-45b527af0f50" text-color="rgba(90,90,90,1)">مفتخرشده</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="b0c05751-9410-42f2-aaa6-9b9d46961d38">خدا ما را به جلال ابدی سرافراز نموده است. اشتیاق ما برای عزت و احترام در شناخت مسیح جامه عمل می پوشد.</content:text>
+            </content:paragraph>
+             <content:paragraph>
+                <content:text i18n-id="8eb2609a-c1d8-435c-aa65-f27ab810e388">"و به خاطر اتحادی که با مسیح داریم، ما را سرافراز فرمود و در قلمرو آسمانی با مسیح نشانید."</content:text>
+                <content:text i18n-id="154b8823-7f2a-4446-8f6e-81229b6203ee">افسسیان 2: 6</content:text>
+            </content:paragraph>
+        </card>
+    </cards>
+       <call-to-action control-color="rgba(255,255,255,1)">
+        <content:text i18n-id="1d8448ca-05a9-4022-a417-3dc2971945a9">برای مطالعۀ بیشتر</content:text>
+    </call-to-action>
+  
+</page>

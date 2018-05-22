@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="https://mobile-content-api.cru.org/xmlns/tract" xmlns:content="https://mobile-content-api.cru.org/xmlns/content" background-color="rgba(236,72,46,1)" card-text-color="rgba(90,90,90,1)">
+    <header>
+       
+        <title>
+            <content:text i18n-id="f9e7c94a-3f6b-47d1-9e33-b9c3d6cc5056">راه حل: خدا آنقدر ما را دوست داشت که عیسی را فرستاد تا شکستگی ما را احیا کند.</content:text>
+        </title>
+    </header>
+    <hero>
+        <content:paragraph>
+            <content:image resource="honor-point-3.png"/>
+        </content:paragraph>
+    </hero>
+    <cards>
+        <card>
+            <label>
+                <content:text i18n-id="7e964067-0512-417f-a3e1-12b0f5e2aa13" text-color="rgba(90,90,90,1)">زندگی شریف عیسی و مرگ شرم آور</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="fd37fbf4-4aaf-422b-94ad-c00366a8545e">گرچه عیسی زندگی کاملا پاکی داشت ولی مورد تمسخر قرار گرفت، رد و طرد شد. مرگ او بر صلیب ناعادلانه و شرم آور بود.</content:text>
+            </content:paragraph>
+            <content:paragraph>
+                <content:text i18n-id="3ed65b1d-c247-4b96-9a73-08aff2491b84">"ما او را خوار شمردیم و طرد کردیم. و او متحمل رنج و درد شد. او متحمل مجازاتی شد که حقّ ما بود، و او دردهایی را تحمل کرد که می بایست ما تحمل می کردیم."</content:text>
+                <content:text i18n-id="b0de2250-6e26-4f3b-8042-2da5fb8e680f">اشعیا 53: 3، 4</content:text>
+            </content:paragraph>
+        </card>
+        <card>
+            <label>
+                <content:text i18n-id="e8d13cd9-44b2-4d76-82ff-adf25136987b" text-color="rgba(90,90,90,1)">عیسی گناه و شرم ما را برداشت</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="3dc722d2-efe8-4f0f-a2f1-9d5814e40c7c">او با خوشحالی گناه ما را بر خود گرفت، تقصیرات ما را برداشت و متحمل شرم و رسوایی ما شد.</content:text>
+            </content:paragraph>
+             <content:paragraph>
+                <content:text i18n-id="ddde64c8-e7c4-4fce-be70-85ea50ee46ba">"چون او [عیسی] به خاطر شادی ای که در انتظارش بود، متحمل صلیب شد و به رسوایی مردن بر روی صلیب اهمیت نداد و بر دست راست تخت الهی نشسته است." </content:text>
+                <content:text i18n-id="34247c83-0df3-4ec1-aafe-3779384f469c">عبرانیان 12: 2ب</content:text>
+            </content:paragraph>
+        </card>
+        <card>
+            <label>
+                <content:text i18n-id="5c184e39-8e2e-43ca-9358-f3def0b521d9" text-color="rgba(90,90,90,1)">عیسی از مردگان برخاست</content:text>
+            </label>
+            <content:paragraph>
+                <content:text i18n-id="992feb7d-4901-4e8d-9f6f-3abb6bdabeef">عیسی از مردگان برخاست، خداوند او را شایسته شمرده و مفتخر ساخت. تنها اوست که می تواند ما را با خدا آشتی دهد.</content:text>
+            </content:paragraph>
+             <content:paragraph>
+                <content:text i18n-id="dcc15108-9179-413b-9687-98c12e1439af">"عیسی به خاطر گناهان ما تسلیم مرگ گردید و زنده شد تا ما در پیشگاه خدا کاملا نیک محسوب شویم." </content:text>
+                <content:text i18n-id="0a591e58-f0e2-4f4b-850d-bf0182ac11b7">رومیان 4: 25</content:text>
+            </content:paragraph>
+        </card>
+    </cards>
+    <call-to-action control-color="rgba(255,255,255,1)">
+        <content:text i18n-id="3787f442-16bd-414c-bd5d-9fd7b1a6f5fe">بنابراین برای احیا و ترمیم چکاری باید انجام دهیم؟</content:text>
+    </call-to-action>
+</page>
