@@ -28,7 +28,12 @@ angular.module('knowGod')
           return el;
         }
       });
-      modal.open();
+      if(modal){
+        modal.open();
+      }
+      else{
+        console.error('Modal with ID:'+id+' doesn\'t exist');
+      }
     }
 
     function Close(id) {
@@ -38,6 +43,11 @@ angular.module('knowGod')
           return el;
         }
       });
-      modal.close();
+      if(modal) {
+        modal.close();
+      }
+      else{
+        console.log('Modal with ID:'+id+' doesn\'t exist');
+      }
     }
   });

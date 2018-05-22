@@ -167,24 +167,4 @@ angular.module('knowGod')
       });
 
     };
-    /*for event in events
-        var listeners = list of listeners matched to event
-        for listener in listeners {
-          if modal, activate modal {
-
-          }
-          else if card, display card  {
-    
-          }
-        }
-
-      */
   });
-    
-
-      /*
-      knowGod.eventClose = function(event){
-          find listeners-dismiss,
-      Hide the listener wether modal or card...
-    }
-*/
