@@ -7,7 +7,7 @@
     <script src="knowGodResource/xslt.js"></script>
   </head>
   <body key-trap>
-    <div ng-controller="KnowGodController as knowGod">
+    <div dir="{{knowGod.language.direction}}" ng-controller="KnowGodController as knowGod">
       <!-- Header -->
       <div>
         <div class="header tc relative">
@@ -48,6 +48,8 @@
         <span class="button db tc"><a ng-if="knowGod.manifest.getPageNumber() == 1" href="" ng-click="knowGod.manifest.nextPage()" class="w50 f21 kg-bg-blue kg-bg-blue-hover kg-white kg-blue-dark-hover">Begin</a></span>
       </div>
 
+    </div>
+
       <!-- Footer -->
       <div class="px100">
         <div class="line kg-gray-light f11">
@@ -56,7 +58,6 @@
         </div>
       </div>
 
-    </div>
     <%=htmlWebpackPlugin.files.webpackManifest%>
   </body>
 </html>

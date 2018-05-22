@@ -6,6 +6,8 @@ angular.module('knowGod')
 
     service.langs = {};
 
+    service.direction = 'ltr';
+
     service.setLang = function(lang) {  //this needs to be tied into the URL/location bar via language code
       _language = lang;
     }
