@@ -104,7 +104,7 @@ input {
   text-decoration: none;
 }
 .pill {
-  border-radius: 20px;
+  border-radius: 50px;
 }
 .pill-right {
   border-radius: 0 50px 50px 0;
@@ -113,7 +113,7 @@ input {
   border-radius: 50px 0 0 50px;
 }
 .pill-inside {
-  padding: 4px 20px 4px 20px;
+  padding: 4px 50px 4px 50px;
 }
 .px100 {
   padding-right: 100px;
@@ -276,10 +276,14 @@ input {
 -------------------------------*/
 modal {
   /* modals are hidden by default */
-  display: none;
+  display: none;  
+  z-index: 1000;
 }
 .show {
   display: block;
+}
+.hide {
+  display: none;
 }
  
 .modal {

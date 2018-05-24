@@ -112,9 +112,6 @@ angular.module('knowGod')
             return;
         }
 
-        // move element to bottom of page (just before </body>) so it can be displayed above everything else
-        angular.element(document.querySelector('body')).append(element);
-
         // close modal on background click
         element.on('click', function (e) {
             var target = angular.element(e.target);
@@ -140,11 +137,13 @@ angular.module('knowGod')
         // open modal
         function Open() {
           element.addClass('show');
+          element.removeClass('hide');
           angular.element(document.querySelector('body')).addClass('modal-open');
         }
 
         // close modal
         function Close() {
+          element.addClass('hide');
           element.removeClass('show');
           angular.element(document.querySelector('body')).removeClass('modal-open');
         }
@@ -158,9 +157,24 @@ angular.module('knowGod')
         events.forEach(function(el){
           var listeners = document.querySelectorAll('[listeners='+el.replace(':','\\:')+'], [dismiss-listeners='+el.replace(':','\\:')+']');
           listeners.forEach(function(listen){
+            listen = angular.element(listen);
+            if(listen.attr('dismiss-listeners') && listen.attr('dismiss-listeners').includes(el)) { //not functioning properly.  This will match partials - shold only match whole string.
+              listen.removeClass('show');
+              listen.addClass('hide');
+            }
+            if (listen.attr('listeners') && listen.attr('listeners').includes(el)) {
+              if(listen.prop('tagName')=='modal') {
+                scope.knowGod.openModal('1');
+              }
+              listen.addClass('show');
+              listen.removeClass('hide');
+            }
+            else {
+              console.log('Listener missing!');
+            }
             //depending on listener this will be different for each.  Need logical way to choose right action per listener type and state
-            angular.element(listen).removeAttr('hidden');
-            scope.knowGod.openModal('1');
+
+
           });
 
         });
