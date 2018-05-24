@@ -158,16 +158,24 @@ angular.module('knowGod')
           var listeners = document.querySelectorAll('[listeners='+el.replace(':','\\:')+'], [dismiss-listeners='+el.replace(':','\\:')+']');
           listeners.forEach(function(listen){
             listen = angular.element(listen);
-            if(listen.attr('dismiss-listeners') && listen.attr('dismiss-listeners').includes(el)) { //not functioning properly.  This will match partials - shold only match whole string.
-              listen.removeClass('show');
-              listen.addClass('hide');
-            }
-            if (listen.attr('listeners') && listen.attr('listeners').includes(el)) {
-              if(listen.prop('tagName')=='modal') {
-                scope.knowGod.openModal('1');
+            console.log();
+            if(listen.attr('dismiss-listeners') && el.split(' ').includes(listen.attr('dismiss-listeners'))) {
+              if(listen[0].tagName === 'MODAL') {
+                scope.knowGod.closeModal(listen.attr('id'));
               }
-              listen.addClass('show');
-              listen.removeClass('hide');
+              else {
+                listen.removeClass('show');
+                listen.addClass('hide');
+              }
+            }
+            else if (listen.attr('listeners') && el.split(' ').includes(listen.attr('listeners'))) {
+              if(listen[0].tagName === 'MODAL') {
+                scope.knowGod.openModal(listen.attr('id'));
+              }
+              else {
+                listen.addClass('show');
+                listen.removeClass('hide');
+              }
             }
             else {
               console.log('Listener missing!');
