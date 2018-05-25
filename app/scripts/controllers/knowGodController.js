@@ -14,6 +14,7 @@ angular.module('knowGod')
 
     $routeParams.pageNumber = 1;
 
+/*. THIS CODE IS NOT CURRENTLY IN USE - may need it for connecting languages, tools, and translations once URL nav is set.
     var translations = function(language) {
   //    var url = 'https://mobile-content-api.cru.org/languages/'+language+'?include=custom_pages'  ;
       var url = 'https://mobile-content-api.cru.org/translations';
@@ -21,7 +22,7 @@ angular.module('knowGod')
         knowGod.translations = response.data;
       });      
     };
-    translations(1);
+    translations(1); */
 
     $scope.keys = [];
     $scope.keys.push({ code: 37, action: function() { manifest.prevPage(); }});
@@ -37,18 +38,9 @@ angular.module('knowGod')
       });
     });
 
-
-
-
     knowGod.openModal = openModal;
     knowGod.closeModal = closeModal;
 
-/*    initController();
-
-    function initController() {
-        vm.bodyText = 'This text can be updated in modal 1';
-    }
-  */  
     function openModal(id){
         ModalService.Open(id);
     }
@@ -180,13 +172,8 @@ angular.module('knowGod')
             else {
               console.log('Listener missing!');
             }
-            //depending on listener this will be different for each.  Need logical way to choose right action per listener type and state
-
-
           });
-
         });
       });
-
     };
   });

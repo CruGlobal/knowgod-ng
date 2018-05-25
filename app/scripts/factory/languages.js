@@ -6,7 +6,7 @@ angular.module('knowGod')
 
     service.langs = {};
 
-    service.direction = 'ltr';
+    service.direction = 'ltr';  //Needs to update correctly based on language type - don't know if this is autodetectable?
 
     service.setLang = function(lang) {  //this needs to be tied into the URL/location bar via language code
       _language = lang;

@@ -2,15 +2,21 @@ angular.module('knowGod')
   .factory('manifest', function ($routeParams, $http, $q, page) { //should be called by url?
     var service = {};
     var baseUrl = 'http://localhost:9000/knowGodResource/';
-    var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';
-    //var _url = '2ecce0057b5daac5b0325d75db17f80a61886bc47692afa587159365647e25d7.xml';
+    var _url = '392380f776ebdffe4a0fd286e522d5cad5930f0b14db0554debf409bc7218c3a.xml';  //English Language Know God tool manifest link
+    //var _url = '2ecce0057b5daac5b0325d75db17f80a61886bc47692afa587159365647e25d7.xml';  //Persian Honor-Shame tool manifest link
     var _finalUrl = '';
     var _manifest = '';
     var _page_number = 1;  //this needs to be tied into the URL/location
+    var _style = 'yo!'; // in load manifest updated to manifest colors if they're present.
 
     var makeUrl = function () { 
       _finalUrl = baseUrl + _url;
       return _finalUrl;
+    }
+
+    service.style = function () {
+      
+      return _style;
     }
 
     service.setUrl = function (url) {
@@ -33,8 +39,11 @@ angular.module('knowGod')
       .then(function(data) {
         deferred.resolve(data);
         _manifest = angular.element(data.data);
-        page.setUrl(angular.element(_manifest.find("page")[_page_number-1]).attr("src"));
 
+//        _style = ''  //Construct css style to be injected into the body tag through ng-style?  Should be vars like in the :root tag in style.css
+
+        //load up the page!
+        page.setUrl(angular.element(_manifest.find("page")[_page_number-1]).attr("src"));
         page.loadPage();
         service.percent();
 
