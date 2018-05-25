@@ -9,6 +9,17 @@
   --kg-gray-dark-hover: #7B7B7B;
   --kg-white: #FFFFFF;
 }
+/*body { //these styles should be angularized to load colors from manifest - needs color var rename and rework to primary and nav-control colors.
+  --kg-blue: red; 
+  --kg-blue-hover: red;
+  --kg-blue-dark: red;
+  --kg-gray: red;
+  --kg-gray-hover: white;
+  --kg-gray-light: green;
+  --kg-gray-dark: red;
+  --kg-gray-dark-hover: red;
+  --kg-white: red;
+}*/
 html {
   overflow-y: scroll;
 }

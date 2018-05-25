@@ -1,12 +1,11 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:t="https://mobile-content-api.cru.org/xmlns/tract" xmlns:c="https://mobile-content-api.cru.org/xmlns/content" exclude-result-prefixes="t c">
   <xsl:output method="xml" encoding="utf-8" />
+<!-- Match page root -->
   <xsl:template match="/">
     <xsl:apply-templates />
-
   </xsl:template>
 
   <xsl:template match="t:page/t:header">
-      <!--button ng-click="knowGod.openModal('1')">Open Modal 2</button-->
     <div class="py25 kg-bg-blue kg-white">
       <h1 class="fl ml25 kg-white"><xsl:value-of select="t:number/c:text" /></h1>
       <h2 class="mx100 kg-white"><xsl:value-of select="t:title/c:text" /></h2>
@@ -17,7 +16,6 @@
     </div>
     </xsl:if>
   </xsl:template>
-
 
 
   <xsl:template match="t:page/t:cards/t:card">
@@ -112,6 +110,8 @@
     </modal>
   </xsl:template>
 
+
+<!-- Elements -->
   <xsl:template match="c:input">
     <label>
       <h3 class="tl"><xsl:value-of select="c:label"/></h3>
@@ -123,8 +123,6 @@
       </input>
     </label>
   </xsl:template>
-
-
 
   <xsl:template match="c:button">
     <span class="db tc button">
@@ -152,7 +150,6 @@
       <xsl:apply-templates/>
     </a>
   </xsl:template>
-
 
   <xsl:template match="c:tabs/c:tab">
     <div>

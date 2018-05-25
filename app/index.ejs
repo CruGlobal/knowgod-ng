@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="knowGodResource/xslt.js"></script>
   </head>
-  <body key-trap>
+  <body key-trap ng-style="knowGod.manifest.style"><!-- place to insert color variable overrrides for the default :root color vars -->
     <div dir="{{knowGod.language.direction}}" ng-controller="KnowGodController as knowGod">
       <!-- Header -->
       <div>
@@ -38,8 +38,8 @@
       </div>
 
    <!-- content goes in here -->
-      <div compile="knowGod.page.html">Yo
-      </div>
+      <page compile="knowGod.page.html">Yo
+      </page>
 
    <!-- next/prev -->
       <div class="my25 mx100">
